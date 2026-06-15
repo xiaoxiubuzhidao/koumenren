@@ -3,232 +3,1413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>系统维护公告</title>
+    <title>叩门人 S3赛季 - 虚空的回响 官方公告网站</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Noto Serif SC', 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%);
+            color: #e0e0ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* 科技风背景动画效果 */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(100, 150, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(150, 200, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(50, 100, 200, 0.1) 0%, transparent 50%);
+            animation: bgMove 25s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+        
+        @keyframes bgMove {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            100% {
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+        
+        /* 科技网格背景 */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(100, 150, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 150, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: rgba(10, 15, 30, 0.7);
+            margin-bottom: 40px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 0;
+        }
+        
+        /* 标题边框动画 */
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            box-shadow: inset 0 0 20px rgba(100, 150, 255, 0.5), 0 0 40px rgba(100, 150, 255, 0.3);
+            animation: borderGlow 3s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+        
+        @keyframes borderGlow {
+            0% {
+                box-shadow: inset 0 0 20px rgba(100, 150, 255, 0.5), 0 0 20px rgba(100, 150, 255, 0.3);
+            }
+            100% {
+                box-shadow: inset 0 0 30px rgba(100, 150, 255, 0.8), 0 0 60px rgba(100, 150, 255, 0.5);
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(to right, #6495ed, #87ceeb, #6495ed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 10px rgba(100, 150, 255, 0.5);
+            }
+            100% {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(100, 150, 255, 0.8), 0 0 30px rgba(100, 150, 255, 0.6);
+            }
+        }
+        
+        .subtitle {
+            font-size: 1.6rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            font-weight: 300;
+            position: relative;
+            color: #87ceeb;
+        }
+        
+        .subtitle::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #6495ed, transparent);
+        }
+        
+        .version-info {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            color: #6495ed;
+        }
+        
+        .authors {
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            gap: 50px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            position: relative;
         }
-
-        .maintenance-container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            padding: 40px;
-            max-width: 600px;
-            width: 90%;
+        
+        .author-card {
+            background: rgba(100, 150, 255, 0.12);
+            padding: 35px;
+            border-radius: 20px;
             text-align: center;
+            min-width: 280px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+        
+        .author-card::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #6495ed, #4169e1, #00bfff);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .author-card:hover {
+            transform: translateY(-10px) scale(1.03) rotateX(5deg);
+            background: rgba(100, 150, 255, 0.18);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .author-card:hover::before {
+            opacity: 1;
+        }
+        
+        .author-name {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #6495ed;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .author-name::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #6495ed;
+            border-radius: 1px;
+        }
+        
+        .author-role {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            opacity: 0.85;
+            font-weight: 400;
+            color: #87ceeb;
+        }
+        
+        .author-desc {
+            font-size: 1.05rem;
+            opacity: 0.92;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        .books-section {
+            background: rgba(100, 150, 255, 0.12);
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(100, 150, 255, 0.2);
             position: relative;
             overflow: hidden;
         }
-
-            .maintenance-container::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 5px;
-                background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
-            }
-
-        .warning-icon {
-            font-size: 60px;
-            color: #ff6b6b;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
+        
+        .books-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #6495ed, #87ceeb, #6495ed);
+            animation: gradientMove 3s linear infinite;
         }
+        
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            color: #6495ed;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #6495ed, transparent);
+            border-radius: 2px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: inline-block;
+            width: 200px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #6495ed, #4169e1);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(100, 150, 255, 0.4);
+            text-align: center;
+            transform-style: preserve-3d;
+            text-decoration: none;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(100, 150, 255, 0.6);
+        }
+        
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: all 0.6s;
+        }
+        
+        .action-button:hover::before {
+            left: 120%;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .book-card {
+            background: rgba(100, 150, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(100, 150, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+        
+        .book-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #6495ed, #87ceeb);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: 1;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-12px) rotateY(5deg);
+            background: rgba(100, 150, 255, 0.22);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .book-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .book-title {
+            font-size: 1.7rem;
+            margin-bottom: 12px;
+            color: #6495ed;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .book-author {
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            opacity: 0.92;
+            color: #e0e0ff;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .book-desc {
+            font-size: 1.05rem;
+            opacity: 0.88;
+            line-height: 1.7;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(10, 15, 30, 0.7);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(100, 150, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        .contact-info {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            opacity: 0.8;
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(100, 150, 255, 0.1);
+            position: relative;
+        }
+        
+        .version-footer {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 0.9rem;
+            color: #6495ed;
+        }
+        
+        /* 系统加载界面样式 */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a12;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            font-family: 'Courier New', monospace;
+            color: #00ffcc;
+        }
+
+        /* 背景扫描线效果 */
+        .loading-screen::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(0, 255, 204, 0.05) 1px,
+                transparent 2px
+            );
+            animation: scan 8s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes scan {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 100vh;
+            }
+        }
+
+        .loading-container {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .loading-logo {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+            }
+            to {
+                text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
+            }
+        }
+
+        .loading-status {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .progress-container {
+            width: 80%;
+            max-width: 500px;
+            height: 10px;
+            background: rgba(0, 255, 204, 0.1);
+            border-radius: 5px;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #00ffcc, #00b3aa);
+            border-radius: 5px;
+            transition: width 0.4s ease;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shine 1.5s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .percentage {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .terminal {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            width: 80%;
+            max-width: 600px;
+            height: 150px;
+            background: rgba(0, 20, 30, 0.7);
+            border: 1px solid #00ffcc;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 0 auto;
+            overflow-y: auto;
+            opacity: 0.8;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+        }
+
+        .terminal-line {
+            margin-bottom: 5px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .loading-dots {
+            display: inline-block;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00ffcc;
+            margin: 0 2px;
+            animation: pulse 1.4s infinite ease-in-out both;
+        }
+
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
+            0%, 80%, 100% {
+                transform: scale(0.8);
+                opacity: 0.7;
             }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
+            40% {
+                transform: scale(1.2);
+                opacity: 1;
             }
         }
-
-        h1 {
-            color: #333;
+        
+        /* 公告样式 */
+        .announcement-section {
+            background: rgba(100, 150, 255, 0.12);
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .announcement-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #6495ed;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+        }
+        
+        .announcement-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: left;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(0, 0, 30, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #6495ed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .announcement-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(100, 150, 255, 0.05), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 3s infinite;
+            animation-delay: 1s;
+        }
+        
+        .announcement-content p {
             margin-bottom: 20px;
-            font-size: 28px;
+            position: relative;
+            z-index: 1;
         }
-
-        .time-info {
-            background: #f8f9fa;
-            padding: 20px;
+        
+        .announcement-highlight {
+            background: rgba(100, 150, 255, 0.2);
+            padding: 15px;
             border-radius: 10px;
             margin: 20px 0;
-            border-left: 4px solid #ff6b6b;
+            border-left: 4px solid #6495ed;
+            animation: highlightPulse 2s infinite;
         }
-
-        .date {
-            font-size: 24px;
-            font-weight: bold;
-            color: #e74c3c;
-            margin: 10px 0;
+        
+        @keyframes highlightPulse {
+            0% { box-shadow: 0 0 5px rgba(100, 150, 255, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(100, 150, 255, 0.6); }
+            100% { box-shadow: 0 0 5px rgba(100, 150, 255, 0.3); }
         }
-
-        .description {
-            color: #666;
-            line-height: 1.6;
-            margin: 15px 0;
-            text-align: left;
+        
+        /* 世界观模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
         }
-
-        .features {
-            background: #e8f4fd;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            text-align: left;
-        }
-
-            .features ul {
-                padding-left: 20px;
-                margin: 10px 0;
-            }
-
-            .features li {
-                margin: 8px 0;
-                color: #555;
-            }
-
-   
-            min-width: 60px;
-        }
-
-        .countdown-value {
-            font-size: 20px;
-            font-weight: bold;
-            display: block;
-        }
-
-        .countdown-label {
-            font-size: 12px;
-            opacity: 0.8;
-        }
-
-        .status {
-            background: #e74c3c;
-            color: white;
-            padding: 5px 15px;
+        
+        .modal-content {
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%);
+            margin: 5% auto;
+            padding: 40px;
             border-radius: 20px;
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 14px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            animation: modalAppear 0.5s ease-out;
         }
-
-        .footer {
+        
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            z-index: 2;
+            transition: color 0.3s;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #6495ed;
+        }
+        
+        .worldview-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #6495ed;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+        }
+        
+        .worldview-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: left;
+            background: rgba(0, 0, 30, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #6495ed;
+        }
+        
+        .worldview-content h3 {
+            color: #6495ed;
+            margin: 20px 0 15px 0;
+            font-size: 1.6rem;
+        }
+        
+        .worldview-content p {
+            margin-bottom: 15px;
+        }
+        
+        /* 档案列表样式 */
+        .archive-section {
+            background: rgba(0, 0, 30, 0.4);
+            padding: 20px;
+            border-radius: 15px;
             margin-top: 20px;
-            color: #888;
-            font-size: 12px;
+            border-left: 5px solid #4169e1;
+        }
+        
+        .archive-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #4169e1;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .archive-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        .archive-item {
+            background: rgba(100, 150, 255, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .archive-item.locked {
+            opacity: 0.6;
+            filter: grayscale(100%);
+        }
+        
+        .archive-item.locked::after {
+            content: "🔒";
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 0.8rem;
+        }
+        
+        .archive-item.unlocked {
+            background: rgba(50, 205, 50, 0.3);
+            opacity: 1;
+            filter: none;
+            cursor: pointer;
+        }
+        
+        .archive-item.unlocked::after {
+            content: "🔓";
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 0.8rem;
+            color: #32cd32;
+        }
+        
+        .archive-item.highest-lock {
+            background: rgba(139, 0, 0, 0.4); /* 深红色表示最高加密 */
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            opacity: 0.4;
+        }
+        
+        .archive-item.highest-lock::before {
+            content: "🔐"; /* 最高加密图标 */
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 0.8rem;
+        }
+        
+        .archive-item.missing {
+            background: rgba(255, 165, 0, 0.4); /* 橙色表示流失 */
+            border: 1px solid rgba(255, 165, 0, 0.5);
+            opacity: 0.6;
+        }
+        
+        .archive-item.missing::before {
+            content: "❌"; /* 流失图标 */
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 0.8rem;
+        }
+        
+        .archive-item:hover {
+            background: rgba(100, 150, 255, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .archive-item.unlocked:hover {
+            background: rgba(50, 205, 50, 0.4);
+        }
+        
+        .archive-item.highest-lock:hover {
+            background: rgba(139, 0, 0, 0.5);
+            cursor: no-drop;
+        }
+        
+        .archive-item.missing:hover {
+            background: rgba(255, 165, 0, 0.5);
+            cursor: not-allowed;
+        }
+        
+        .lock-message {
+            text-align: center;
+            color: #4169e1;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 30, 0.3);
+            border-radius: 10px;
+            border: 1px solid rgba(100, 150, 255, 0.3);
+        }
+        
+        .highest-lock-message {
+            text-align: center;
+            color: #ff0000;
+            font-size: 1.3rem;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(139, 0, 0, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 0, 0, 0.4);
+        }
+        
+        .missing-message {
+            text-align: center;
+            color: #ffa500;
+            font-size: 1.3rem;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255, 165, 0, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 165, 0, 0.4);
+        }
+        
+        .unlocked-message {
+            text-align: center;
+            color: #32cd32;
+            font-size: 1.3rem;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(50, 205, 50, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(50, 205, 50, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .authors {
+                gap: 30px;
+            }
+            
+            .author-card {
+                min-width: 250px;
+                padding: 25px;
+            }
+            
+            .books-section {
+                padding: 30px 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-button {
+                width: 80%;
+                max-width: 250px;
+            }
+            
+            .book-card {
+                padding: 25px;
+            }
+            
+            /* 移动端加载界面调整 */
+            .loading-logo {
+                font-size: 1.8rem;
+            }
+            
+            .terminal {
+                width: 95%;
+                max-width: none;
+                height: 120px;
+            }
+            
+            .version-info {
+                font-size: 1rem;
+            }
+            
+            .version-footer {
+                position: static;
+                display: block;
+                margin-top: 10px;
+                font-size: 0.8rem;
+            }
+            
+            .announcement-section {
+                padding: 30px 20px;
+            }
+            
+            .announcement-content {
+                padding: 20px;
+                font-size: 1rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 30px 20px;
+            }
+            
+            .worldview-title {
+                font-size: 2rem;
+            }
+            
+            .worldview-content {
+                font-size: 1rem;
+                padding: 20px;
+            }
+            
+            .archive-list {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                font-size: 0.8rem;
+            }
+            
+            .archive-item {
+                padding: 8px;
+                font-size: 0.7rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .authors {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .author-card {
+                min-width: 90%;
+            }
+            
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="maintenance-container">
-        <div class="warning-icon">⚠️</div>
-        <h1>系统维护公告</h1>
-
-        <div class="time-info">
-            <h3>维护时间</h3>
-            <div class="date">2026年6月14日</div>
-            <p>预计维护时长：4小时</p>
-            <p>维护时段：凌晨2:00 - 凌晨6:00</p>
+    <!-- 系统加载界面 -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-container">
+            <div class="loading-logo">叩门人 SYSTEM v3.0.0</div>
+            <div class="loading-status">正在进入系统<span class="loading-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </span></div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="percentage" id="percentage">0%</div>
+            <div class="terminal" id="terminal">
+                <div class="terminal-line">>  vfuck0.0...</div>
+            </div>
         </div>
+    </div>
 
-        <div class="status">维护中</div>
-
-        <div class="description">
-            <h3>维护内容：</h3>
-            <div class="features">
-                <ul>
-                    <li>服务器硬件升级与优化</li>
-                    <li>数据库性能调优</li>
-                    <li>安全补丁更新</li>
-                    <li>系统稳定性增强</li>
-                    <li>网络架构优化</li>
+    <!-- 主要内容区域 -->
+    <div class="container" id="mainContent" style="display: none;">
+        <header>
+            <div class="header-content">
+                <h1>叩门人 S3赛季 - 虚空的回响</h1>
+                <div class="subtitle">全新篇章，即将开启</div>
+                <div class="version-info">版本：v3.0.0</div>
+            </div>
+        </header>
+        
+        <div class="authors">
+            <div class="author-card">
+                <div class="author-name">小修</div>
+                <div class="author-role">主笔</div>
+                <div class="author-desc">擅长构建宏大世界观的幻想小说作家，作品以细腻的情感描写和深刻的人物刻画著称。文字风格富有诗意，善于在宏大的叙事背景下探讨人性的复杂与美好。</div>
+            </div>
+            
+            <div class="author-card">
+                <div class="author-name">夕折</div>
+                <div class="author-role">副笔</div>
+                <div class="author-desc">专注于现实题材和情感小说的作家，善于捕捉生活中的细微情感，文字温暖而治愈。作品常以日常生活为背景，展现人与人之间真挚的情感联系。</div>
+            </div>
+        </div>
+        
+        <!-- 世界观按钮 -->
+        <div class="action-buttons">
+            <a href="#" class="action-button" onclick="openWorldviewModal()">世界观</a>
+        </div>
+        
+        <!-- 公告部分 -->
+        <div class="announcement-section">
+            <h2 class="announcement-title">S3赛季 - 虚空的回响</h2>
+            <div class="announcement-content">
+                <h3 style="color: #6495ed; margin-bottom: 20px; text-align: center;">重要公告</h3>
+                
+                <div class="announcement-highlight">
+                    <p style="font-size: 1.4rem; text-align: center; margin: 0;"><strong>🎮 S3赛季"虚空的回响"将于2026年正式跟大家见面！</strong></p>
+                    <p style="font-size: 1.4rem; text-align: center; margin: 10px 0 0 0;"><strong>📅 游戏定档：2026年7月17日</strong></p>
+                </div>
+                
+                <p>亲爱的玩家们，经过长时间的精心筹备与开发，我们怀着无比激动的心情宣布：<strong>"叩门人" S3赛季 - "虚空的回响"</strong> 即将震撼来袭！</p>
+                
+                <p>在全新的S3赛季中，我们将为您带来前所未有的游戏体验：</p>
+                
+                <ul style="margin-left: 30px; margin-bottom: 20px;">
+                    <li>【全新剧情】深入探索"虚空的回响"的奥秘，揭开前一季留下的重重谜团</li>
+                    <li>【创新玩法】引入"虚空共鸣系统"，玩家的选择将影响世界的走向</li>
+                    <li>【视觉升级】采用全新引擎技术，打造更加沉浸式的虚拟世界</li>
+                    <li>【社交扩展】开放更多协作模式，与好友共同面对挑战</li>
                 </ul>
+                
+                <p>我们深知每一次的等待都承载着您的期待，因此团队成员们日夜兼程，力求将最完美的"虚空的回响"呈现给大家。2026年7月17日，让我们一起踏入这个充满未知与惊喜的全新世界！</p>
+                
+                <p>感谢您一直以来的支持与陪伴，"叩门人"因您而精彩！</p>
+                
+                <p style="text-align: right; font-style: italic; margin-top: 30px;">—— 小修 & 夕折<br>叩门人创作团队</p>
             </div>
         </div>
-
-        <div class="description">
-            <h3>影响范围：</h3>
-            <p>维护期间所有服务将暂停访问，包括网站、API接口、后台管理系统等。</p>
+        
+        <div class="books-section">
+            <h2 class="section-title">往期作品回顾</h2>
+            <div class="books-grid">
+                <a href="https://fanqienovel.com/page/7618721621053819966?enter_from=search" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="book-card">
+                        <div class="book-title">叩门人</div>
+                        <div class="book-author">作者：夕折</div>
+                        <div class="book-desc">一部充满悬疑色彩的小说，讲述神秘访客的到来如何改变平凡生活的故事。通过层层悬念揭示人性深处的秘密与渴望。</div>
+                    </div>
+                </a>
+                
+                <div class="book-card">
+                    <div class="book-title">清禄山</div>
+                    <div class="book-author">作者：夕折</div>
+                    <div class="book-desc">一段温暖的故事，描绘现代人的情感纠葛与内心成长。在山间小镇的宁静氛围中，探索人际关系的复杂与美好。</div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-title">鬼叩</div>
+                    <div class="book-author">作者：小修</div>
+                    <div class="book-desc">稍后上线。这是一部融合了东方神秘元素的奇幻作品，将带领读者进入一个充满未知与惊奇的世界。</div>
+                </div>
+            </div>
         </div>
-
+        
         <div class="contact">
-            <h3>联系方式：</h3>
-            <p>如有紧急情况，请联系技术支持</p>
-            <p>邮箱：<a href="mailto:xiaoxiubuzhidao@163.com">xiaoxiubuzhidao@163.com</a></p>
-            <p>电话：<a href="tel:15532158215">15532158215</a></p>
+            <div class="contact-info">敬请期待更多精彩作品...</div>
         </div>
-
-        <div class="countdown">
-            <div class="countdown-item">
-                <span class="countdown-value" id="days">00</span>
-                <span class="countdown-label">天</span>
+        
+        <footer>
+            <p>&copy; 2026 叩门人官方网站. 保留所有权利.</p>
+            <div class="version-footer">v3.0.0</div>
+        </footer>
+    </div>
+    
+    <!-- 世界观模态框 -->
+    <div id="worldviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeWorldviewModal()">&times;</span>
+            <h2 class="worldview-title">世界观 - 虚空的回响</h2>
+            <div class="worldview-content">
+                <h3>S3赛季 - 虚空的回响</h3>
+                <p>在S3赛季中，我们将引入"虚空的回响"这一全新概念。虚空的回响是一种存在于现实与虚无之间的神秘力量，它既映射着人类内心的深层意识，又拥有自己独立的意志。当现实世界与虚空的回响产生共振时，就会引发"虚实交错现象"，这种现象会直接影响现实世界的存在状态。</p>
+                
+                <h3>基本设定</h3>
+                <p>这是一个江户时代与现代的融合世界，在这个独特的时空背景下，传统与现代文明交织共存，形成了一种前所未有的社会结构。第三章中提到的"新目党"和"保皇党"正是这个时代冲突的缩影。</p>
+                
+                <h3>两大政党体系</h3>
+                <p><strong>新目党</strong>：代表着固执的封建思想，坚持传统的江户时代价值观，强调等级制度、武士道精神和社会秩序。他们反对现代化改革，认为传统的社会结构是维系社会稳定的根本。</p>
+                
+                <p><strong>保皇党</strong>：代表着激进的开放理念，主张学习现代文明，推动社会变革，追求民主与进步。由于权力较大，当前的政治格局更偏向江户时代，但现代元素依然存在，使得人们的思想相对保守。</p>
+                
+                <h3>政治格局演变</h3>
+                <p>现任首相德川项石的父亲，德川赤坟执政时期，大力加强保皇党权利，全国推行"尚文之风"，导致新目党在那个时期权力极低。而现在的项石政府，则采取了一种微妙的平衡策略——利用武将来约束文臣，用文臣来制约武将，这种策略虽然防止了任何一方独大，但也造成了严重的党争现象。</p>
+                
+                <p>这种党争现象如同历史上明朝的朋党、严党一般可怕，项石正是想通过党争来树立自己的党派，但这却导致了政权混乱，百官不闻政事，最终催生了起义军和后期的"清吏使"。</p>
+                
+                <p>专门负责针对像保皇党这样的大型党派，用一定的武力和威慑来提醒他们关注民生。他们以"百姓快饿死了，别玩政治了，赶紧管管民生吧，不然就造反了"为口号，形成了鲜明的社会现实——百官不闻窗外事，百姓自力更生。</p>
+                
+                <p>这种政治真空状态反而造成了一个奇特的自由现象：很多事情只要给钱就能解决，因为人们无法确定今天的新任长官明天是否会再次更换。这种不确定性导致了社会秩序的松动和权力的分散化。</p>
+                
+                <p>在这个世界中，江户时代的建筑、服饰、礼仪与现代科技、交通、通讯工具并存。人们既穿着和服又使用智能手机，既遵循传统的等级观念又享受着现代的便利生活。这种矛盾统一构成了这个世界最独特的魅力。</p>
+                
+                <!-- 档案部分 -->
+                <div class="archive-section">
+                    <h3 class="archive-title">档案库</h3>
+                    <div class="archive-list" id="archiveList">
+                        <!-- 档案将通过JavaScript动态生成 -->
+                    </div>
+                    <div class="lock-message">🔒 1-5号档案为最高加密级别，无法访问 🔒</div>
+                    <div class="missing-message">❌ 6-20号档案已丢失，无法恢复 ❌</div>
+                    <div class="unlocked-message">🔓 档案186已解锁，可访问 🔓</div>
+                </div>
             </div>
-            <div class="countdown-item">
-                <span class="countdown-value" id="hours">00</span>
-                <span class="countdown-label">时</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-value" id="minutes">00</span>
-                <span class="countdown-label">分</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-value" id="seconds">00</span>
-                <span class="countdown-label">秒</span>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>感谢您的理解与支持</p>
-            <p>系统维护完成后将提供更稳定的服务体验</p>
         </div>
     </div>
 
     <script>
-        // 计算到2026年6月14日的倒计时
-        function updateCountdown() {
-        const targetDate = new Date('2026-06-14T02:00:00');
-        const now = new Date();
-        const diff = targetDate - now;
-
-        if (diff > 0) {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById('days').textContent = days.toString().padStart(2, '0');
-        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        } else {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
+        // 模拟系统加载过程
+        const progress = document.getElementById('progressBar');
+        const percentage = document.getElementById('percentage');
+        const terminal = document.getElementById('terminal');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const mainContent = document.getElementById('mainContent');
+        
+        const messages = [
+            "> 连接叩门人数据库 v3.0.0...",
+            "> 验证用户权限...",
+            "> 加载小说内容...",
+            "> 初始化API接口...",
+            "> 启动安全协议...",
+            "> 准备用户界面...",
+            "> 加载世界观数据...",
+            "> 同步江户-现代融合参数...",
+            "> 系统启动完成！",
+            "> 欢迎访问叩门人系统 v3.0.0"
+        ];
+        
+        let currentProgress = 0;
+        let messageIndex = 0;
+        let isLoadingComplete = false;
+        
+        function updateProgress() {
+            if (currentProgress < 100) {
+                // 每次增加随机进度值，确保最终达到100%
+                const increment = Math.min(Math.random() * 10, 100 - currentProgress);
+                currentProgress += increment;
+                
+                // 更新进度条和百分比
+                progress.style.width = `${currentProgress}%`;
+                percentage.textContent = `${Math.round(currentProgress)}%`;
+                
+                // 随机时机添加终端消息
+                if (messageIndex < messages.length && Math.random() > 0.7) {
+                    const line = document.createElement('div');
+                    line.className = 'terminal-line';
+                    line.textContent = messages[messageIndex];
+                    terminal.appendChild(line);
+                    terminal.scrollTop = terminal.scrollHeight;
+                    messageIndex++;
+                }
+                
+                // 继续更新进度
+                setTimeout(updateProgress, 100 + Math.random() * 200);
+            } else {
+                // 强制设置进度为100%
+                progress.style.width = '100%';
+                percentage.textContent = '100%';
+                
+                // 加载完成后隐藏加载界面，显示主要内容
+                setTimeout(() => {
+                    const finalLine = document.createElement('div');
+                    finalLine.className = 'terminal-line';
+                    finalLine.textContent = '> 访问授权已建立 v3.0.0';
+                    terminal.appendChild(finalLine);
+                    
+                    const accessLine = document.createElement('div');
+                    accessLine.className = 'terminal-line';
+                    accessLine.textContent = '> 欢迎回来，用户';
+                    terminal.appendChild(accessLine);
+                    terminal.scrollTop = terminal.scrollHeight;
+                    
+                    // 2秒后切换到主要内容
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        mainContent.style.display = 'block';
+                        
+                        // 添加页面淡入效果
+                        mainContent.style.opacity = '0';
+                        mainContent.style.transition = 'opacity 1s ease-in-out';
+                        setTimeout(() => {
+                            mainContent.style.opacity = '1';
+                        }, 50);
+                    }, 2000);
+                }, 500);
+            }
         }
+        
+        // 启动加载动画
+        setTimeout(updateProgress, 500);
+        
+        // 世界观模态框功能
+        function openWorldviewModal() {
+            document.getElementById('worldviewModal').style.display = 'block';
+            
+            // 生成档案列表
+            generateArchives();
         }
-
-        // 初化倒计时
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        
+        function closeWorldviewModal() {
+            document.getElementById('worldviewModal').style.display = 'none';
+        }
+        
+        // 生成档案列表
+        function generateArchives() {
+            const archiveList = document.getElementById('archiveList');
+            archiveList.innerHTML = ''; // 清空现有内容
+            
+            // 创建1-200号档案
+            for (let i = 1; i <= 200; i++) {
+                const archiveItem = document.createElement('div');
+                
+                // 档案1-5为最高加密
+                if (i >= 1 && i <= 5) {
+                    archiveItem.className = 'archive-item highest-lock';
+                    archiveItem.textContent = `No.${i}(最高加密)`;
+                } 
+                // 档案6-20为流失档案
+                else if (i >= 6 && i <= 20) {
+                    archiveItem.className = 'archive-item missing';
+                    archiveItem.textContent = `No.${i}(已流失)`;
+                }
+                // 档案186解锁
+                else if (i === 186) {
+                    archiveItem.className = 'archive-item unlocked';
+                    archiveItem.textContent = `No.${i}`;
+                }
+                // 其他档案为普通锁定
+                else {
+                    archiveItem.className = 'archive-item locked';
+                    archiveItem.textContent = `No.${i}`;
+                }
+                
+                // 添加点击事件
+                archiveItem.addEventListener('click', function() {
+                    if (i >= 1 && i <= 5) {
+                        alert(`档案 No.${i} 已被最高级加密锁定，无法访问`);
+                    } else if (i >= 6 && i <= 20) {
+                        alert(`档案 No.${i} 已丢失，无法恢复`);
+                    } else if (i === 186) {
+                        alert(`档案 No.${i} 已解锁，内容已解密：\n\n第一军团"刺官军"\n隐秘谍报、斩首刺杀、皇城监察近卫，关西黑林城（火林惨案发生地，老城夯土城墙，外围近现代钢筋堡垒，地下密道网遍布全城）幽影炼体术，古法淬毒经脉改造，夜视基因编辑，皮肤耐低温、痛感大幅削弱，擅长隐匿潜伏，制式装备，内层汉服劲装，轻量化复合鳞甲防弹衣，主武器，淬毒环首短刀、消音改装五四式短突、等离子袖箭，特种配装光学隐身斗，历史沿革，原五大民军残部，关西围困战后归顺项石，火林惨案死守东城76天拖垮围城敌军，由营扩编为军团，日常负责，朝堂百官监察、敌酋秘密斩首、皇室贴身暗卫，全员沉默寡言，军团无军旗，只用墨色乌鸦纹章，内部等级以暗杀功绩晋升，但正面阵地攻坚能力极差，不擅长大规模兵团作战\n\nS4赛季"时间的裂缝"预告：\n在时间的裂缝深处，隐藏着一个足以改变两个世界命运的秘密...`);
+                    } else {
+                        alert(`档案 No.${i} 已被加密锁定，无法访问`);
+                    }
+                });
+                
+                archiveList.appendChild(archiveItem);
+            }
+        }
+        
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('worldviewModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
