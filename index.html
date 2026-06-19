@@ -1,119 +1,415 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게임 & 소설 피드백 포럼 - 전부 불만</title>
+    <title>Feedback Portal 2026 - Expanded Edition</title>
     <style>
-        body {
-            font-family: 'Malgun Gothic', sans-serif;
-            background-color: #f5f5f5;
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --positive: #2ecc71;
+            --negative: #e74c3c;
+            --neutral: #f39c12;
+            --light: #ecf0f1;
+            --dark: #34495e;
+        }
+        
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
             padding: 20px;
         }
+        
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: var(--primary);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .feedback-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feedback-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .positive-header {
+            background: linear-gradient(to right, var(--positive), #1abc9c);
+        }
+        
+        .negative-header {
+            background: linear-gradient(to right, var(--negative), #e67e22);
+        }
+        
+        .neutral-header {
+            background: linear-gradient(to right, var(--neutral), #f1c40f);
+        }
+        
+        .novel-header {
+            background: linear-gradient(to right, #8e44ad, #9b59b6);
+        }
+        
+        .rating {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .card-body {
             padding: 20px;
         }
-        h1 {
-            color: #d32f2f;
+        
+        .author {
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .author::before {
+            content: "👤";
+            margin-right: 8px;
+        }
+        
+        .date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .content {
+            line-height: 1.6;
+            color: #34495e;
+        }
+        
+        .category-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .tag-product {
+            background: #3498db;
+            color: white;
+        }
+        
+        .tag-novel {
+            background: #8e44ad;
+            color: white;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            background: white;
+            color: var(--dark);
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        footer {
             text-align: center;
-            border-bottom: 2px solid #d32f2f;
+            padding: 20px;
+            color: var(--dark);
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--primary);
+            margin: 30px 0 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--secondary);
             padding-bottom: 10px;
         }
-        .complaint-item {
-            background-color: #fff3f3;
-            border-left: 4px solid #d32f2f;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 4px;
-        }
-        .complaint-title {
-            font-weight: bold;
-            color: #c62828;
-            margin-bottom: 5px;
-        }
-        .complaint-text {
-            color: #555;
-            line-height: 1.5;
-        }
-        .warning {
-            background-color: #fff8e1;
-            border: 1px solid #ffd54f;
-            padding: 10px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #ff8f00;
+        
+        @media (max-width: 768px) {
+            .feedback-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>게임 & 소설 '叩門人' 피드백 - 전부 불만사항</h1>
+        <header>
+            <h1>Feedback Portal 2026</h1>
+            <p class="subtitle">Comprehensive Review System for Products & Novels</p>
+        </header>
         
-        <div class="warning">
-            ⚠️ 이 페이지는 실제 유용한 리뷰가 하나도 없으며, 모두 불만사항으로만 구성되어 있습니다.
+        <div class="filters">
+            <button class="filter-btn active">All Feedback</button>
+            <button class="filter-btn">Positive</button>
+            <button class="filter-btn">Negative</button>
+            <button class="filter-btn">Novel Reviews</button>
         </div>
-
-        <div class="complaint-item">
-            <div class="complaint-title">불만 #1</div>
-            <div class="complaint-text">이 소설은 너무 어렵습니다! 뭐가 뭔지 하나도 모르겠어요. 왜 사람들이 이걸 재미있다고 하는지 이해할 수 없습니다.</div>
+        
+        <h2 class="section-title">Product Reviews</h2>
+        <div class="feedback-grid">
+            <!-- Positive Product Feedback -->
+            <div class="feedback-card">
+                <div class="card-header positive-header">
+                    <h3>Excellent Experience</h3>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="card-body">
+                    <div class="author">Sarah Johnson</div>
+                    <div class="date">January 15, 2026</div>
+                    <div class="content">
+                        This product exceeded my expectations! The quality is outstanding and customer service was incredibly helpful. 
+                        Will definitely recommend to friends and family. Worth every penny!
+                    </div>
+                    <span class="category-tag tag-product">Product</span>
+                </div>
+            </div>
+            
+            <div class="feedback-card">
+                <div class="card-header positive-header">
+                    <h3>Game-Changing Innovation</h3>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="card-body">
+                    <div class="author">Michael Chen</div>
+                    <div class="date">February 3, 2026</div>
+                    <div class="content">
+                        As a tech enthusiast, I'm impressed by the seamless integration and intuitive design. 
+                        This has simplified my daily workflow significantly. A must-have for professionals!
+                    </div>
+                    <span class="category-tag tag-product">Product</span>
+                </div>
+            </div>
+            
+            <!-- Negative Product Feedback -->
+            <div class="feedback-card">
+                <div class="card-header negative-header">
+                    <h3>Major Disappointment</h3>
+                    <div class="rating">★☆☆☆☆</div>
+                </div>
+                <div class="card-body">
+                    <div class="author">David Wilson</div>
+                    <div class="date">January 28, 2026</div>
+                    <div class="content">
+                        Product arrived damaged and customer service was unresponsive. The build quality is far below what was advertised. 
+                        Will not purchase from this brand again. Very disappointed with the experience.
+                    </div>
+                    <span class="category-tag tag-product">Product</span>
+                </div>
+            </div>
+            
+            <div class="feedback-card">
+                <div class="card-header negative-header">
+                    <h3>Bug-Ridden Software</h3>
+                    <div class="rating">★☆☆☆☆</div>
+                </div>
+                <div class="card-body">
+                    <div class="author">Jennifer Kim</div>
+                    <div class="date">February 14, 2026</div>
+                    <div class="content">
+                        Constant crashes and performance issues make this software unusable. Despite multiple updates, 
+                        core problems remain unresolved. Technical support offers no real solutions. Poor value for money.
+                    </div>
+                    <span class="category-tag tag-product">Product</span>
+                </div>
+            </div>
         </div>
-
-        <div class="complaint-item">
-            <div class="complaint-title">불만 #2</div>
-            <div class="complaint-text">게임 조작이 너무 복잡해요. 초보자는 절대 할 수 없는 구조입니다. 왜 이런 시스템을 만들었죠?</div>
+        
+        <h2 class="section-title">Novel Reviews & Complaints</h2>
+        <div class="feedback-grid">
+            <!-- Novel Complaints -->
+            <div class="feedback-card">
+                <div class="card-header negative-header">
+                    <h3>Predictable Plot</h3>
+                    <div class="rating">★☆☆☆☆</div>
+                </div>
+                <div class="card-body">
+                    <div class="author">Alex Morgan</div>
+                    <div class="date">March 18, 2026</div>
+                    <div class="content">
+                        The storyline was extremely predictable with no surprises. Characters felt one-dimensional and dialogue was 
+                        clunky throughout. Expected better writing from an established author. Waste of reading time.
+                    </div>
+                    <span class="category-tag tag-novel">Novel</span>
+                </div>
+            </div>
+            
+            <div class="feedback-card">
+                <div class="card-header negative-header">
+                    <h3>Rushed Ending</h3>
+                    <div class="rating">★★☆☆☆</div>
+                </div>
+                <div class="card-body">
+                    <div class="author">Rebecca Thompson</div>
+                    <div class="date">April 2, 2026</div>
+                    <div class="content">
+                        After building up an intricate plot for 400 pages, the ending felt rushed and unsatisfying. 
+                        Loose ends weren't properly tied, and character development was abandoned in the final chapters. 
+                        Felt cheated after investing so much time.
+                    </div>
+                    <span class="category-tag tag-novel">Novel</span>
+                </div>
+            </div>
+            
+            <div class="feedback-card">
+                <div class="card-header negative-header">
+                    <h3>Excessive Violence</h3>
+                    <div class="rating">★☆☆☆☆</div>
+                </div>
+                <div class="card-body">
+                    <div class="author">Marcus Lee</div>
+                    <div class="date">April 15, 2026</div>
+                    <div class="content">
+                        The graphic descriptions of violence were unnecessary and disturbing. Content warnings should be provided. 
+                        The excessive gore overshadowed any meaningful narrative. Not suitable for sensitive readers.
+                    </div>
+                    <span class="category-tag tag-novel">Novel</span>
+                </div>
+            </div>
+            
+            <div class="feedback-card">
+                <div class="card-header negative-header">
+                    <h3>Historical Inaccuracies</h3>
+                    <div class="rating">★☆☆☆☆</div>
+                </div>
+                < class="card-body">
+                    <div class="author">Dr. Helen Richardson</div>
+                    <div class="date">May 1, 2026</div>
+                    <div class="content">
+                        As a historian, I found numerous factual errors that undermine the credibility of the entire work. 
+                        The author took liberties with historical events without proper research. Misleading to uninformed readers.
+                    </div>
+                    <span class="category-tag tag-novel">Novel</span>
+                </div>
+            </div>
+            
+            <div class="feedback-card">
+                <div class="card-header negative-header">
+                    <h3>Offensive Stereotypes</h3>
+                    <div class="rating">★☆☆☆☆</div>
+                </div>
+                <div class="card-body">
+                    <div class="author">James Washington</div>
+                    <div class="date">May 12, 2026</div>
+                    <div class="content">
+                        The portrayal of certain ethnic groups relies heavily on harmful stereotypes. 
+                        The author perpetuates offensive generalizations instead of creating nuanced characters. 
+                        This type of representation is damaging and outdated.
+                    </div>
+                    <span class="category-tag tag-novel">Novel</span>
+                </div>
+            </div>
+            
+            <div class="feedback-card">
+                <div class="card-header novel-header">
+                    <h3>Overly Complex Language</h3>
+                    <div class="rating">★★☆☆☆</div>
+                </div>
+                <div class="card-body">
+                    <div class="author">Sophie Dubois</div>
+                    <div class="date">June 3, 2026</div>
+                    <div class="content">
+                        The author seems more interested in showing off vocabulary than telling a coherent story. 
+                        Unnecessarily complex sentences made it difficult to follow the plot. Simpler language would have been more effective.
+                    </div>
+                    <span class="category-tag tag-novel">Novel</span>
+                </div>
+            </div>
         </div>
-
-        <div class="complaint-item">
-            <div class="complaint-title">불만 #3</div>
-            <div class="complaint-text">캐릭터 디자인이 형편없어요. 왜 이렇게 못생기게 만들었나요? 눈이 너무 작고 표정도 안 보여요.</div>
-        </div>
-
-        <div class="complaint-item">
-            <div class="complaint-title">불만 #4</div>
-            <div class="complaint-text">이야기 전개가 너무 느려요. 한 시간 동안 아무것도 안 일어나는데요? 대체 몇 시간을 기다려야 하나요?</div>
-        </div>
-
-        <div class="complaint-item">
-            <div class="complaint-title">불만 #5</div>
-            <div class="complaint-text">결말이 엉망입니다. 완전히 낚시였어요. 제 인생의 시간을 되돌려주세요!</div>
-        </div>
-
-        <div class="complaint-item">
-            <div class="complaint-title">불만 #6</div>
-            <div class="complaint-text">음악이 너무 시끄럽고 신경 쓰여요. 왜 이런 음향 효과를 넣었는지 도무지 이해가 가지 않습니다.</div>
-        </div>
-
-        <div class="complaint-item">
-            <div class="complaint-title">불만 #7</div>
-            <div class="complaint-text">이 책은 독자의 감정을 전혀 배려하지 않습니다. 왜 이렇게 무책임하게 만들었죠?</div>
-        </div>
-
-        <div class="complaint-item">
-            <div class="complaint-title">불만 #8</div>
-            <div class="complaint-text">게임이 자꾸 버벅거립니다. 사양이 좋은 컴퓨터에서도 버퍼링이 발생합니다. 최적화가 전혀 안 되어 있어요.</div>
-        </div>
-
-        <div class="complaint-item">
-            <div class="complaint-title">불만 #9</div>
-            <div class="complaint-text">이 소설의 문체는 너무 어렵고 고상해서 일반인은 절대 이해할 수 없습니다. 왜 이런 글을 썼는지 모르겠어요.</div>
-        </div>
-
-        <div class="complaint-item">
-            <div class="complaint-title">불만 #10</div>
-            <div class="complaint-text">이 작품은 완전히 기대 밖입니다. 왜 사람들이 추천했는지 정말 후회스럽습니다. 돈 아까워요.</div>
-        </div>
-
-        <div style="text-align: center; margin-top: 30px; color: #777;">
-            <p>이 피드백 페이지에는 단 하나의 긍정적인 리뷰도 없습니다.</p>
-            <p>모든 내용은 사용자들의 불만사항으로만 구성되어 있습니다.</p>
-        </div>
+        
+        <footer>
+            <p>Feedback Portal 2026 - All reviews are user-generated. We value honest feedback to improve our services.</p>
+            <p>© 2026 Feedback Systems. All rights reserved.</p>
+        </footer>
     </div>
+    
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // In a real implementation, this would filter the feedback cards
+                // For this demo, we'll just show an alert
+                alert(`Filtering by: ${button.textContent}`);
+            });
+        });
+    </script>
 </body>
 </html>
