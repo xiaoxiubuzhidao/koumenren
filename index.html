@@ -35,12 +35,16 @@
             border-radius: 8px;
             padding: 15px;
             text-align: center;
-            width: 200px;
+            width: 160px;
             margin: 10px;
         }
         .negative-stat {
             background-color: #fdecea;
             border: 1px solid #dc3545;
+        }
+        .warning-stat {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
         }
         table {
             width: 100%;
@@ -77,6 +81,9 @@
         .negative-bar {
             background-color: #dc3545;
         }
+        .warning-bar {
+            background-color: #ffc107;
+        }
         .bar-label {
             position: absolute;
             bottom: -25px;
@@ -101,6 +108,9 @@
         .feedback-negative {
             color: #dc3545;
         }
+        .feedback-warning {
+            color: #ffc107;
+        }
         .key-insights {
             background-color: #f8f9fa;
             padding: 15px;
@@ -116,28 +126,84 @@
             text-align: center;
             padding: 10px;
         }
+        .server-status {
+            background-color: #e2e3e5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .server-down {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .server-stable {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .server-issue {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .dimension-section {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .dimension-chart {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            height: 200px;
+            align-items: flex-end;
+            border-bottom: 2px solid #333;
+        }
+        .dimension-bar {
+            width: 80px;
+            background-color: #17a2b8;
+            margin: 0 10px;
+            position: relative;
+            border-radius: 4px 4px 0 0;
+        }
+        .dimension-bar-3d {
+            background-color: #fd7e14;
+        }
+        .dimension-bar-neutral {
+            background-color: #6c757d;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Door Knocking Game Survey Results</h1>
         
+        <div class="server-status">
+            <h2>Server Status: <span class="server-down">FREQUENT OUTAGES DETECTED</span></h2>
+            <p>Uptime: 78% | Average downtime per day: 4.2 hours</p>
+        </div>
+        
         <div class="stats-container">
             <div class="stat-card">
                 <h3>Total Responses</h3>
-                <p id="total-responses">45</p>
+                <p id="total-responses">58</p>
             </div>
             <div class="stat-card">
                 <h3>Avg Rating</h3>
-                <p id="avg-rating">3.8/5</p>
+                <p id="avg-rating">3.3/5</p>
             </div>
             <div class="stat-card">
                 <h3>Most Common Age</h3>
                 <p id="common-age">25-34</p>
             </div>
             <div class="stat-card negative-stat">
-                <h3>Complaint Rate</h3>
-                <p id="complaint-rate">22%</p>
+                <h3>Server Complaints</h3>
+                <p id="server-complaints">41%</p>
+            </div>
+            <div class="stat-card warning-stat">
+                <h3>3D Requests</h3>
+                <p id="dimension-complaints">28%</p>
             </div>
         </div>
         
@@ -145,21 +211,65 @@
         <div class="chart-container">
             <div style="height: 60%;">
                 <div class="bar" style="height: 60%;">
-                    <div class="bar-value">20</div>
+                    <div class="bar-value">24</div>
                 </div>
                 <div class="bar-label">Intermediate</div>
             </div>
             <div style="height: 45%;">
                 <div class="bar" style="height: 45%;">
-                    <div class="bar-value">14</div>
+                    <div class="bar-value">18</div>
                 </div>
                 <div class="bar-label">Beginner</div>
             </div>
             <div style="height: 25%;">
                 <div class="bar" style="height: 25%;">
-                    <div class="bar-value">11</div>
+                    <div class="bar-value">16</div>
                 </div>
                 <div class="bar-label">Expert</div>
+            </div>
+        </div>
+        
+        <h2>Dimension Preference Distribution</h2>
+        <div class="dimension-chart">
+            <div style="height: 70%;">
+                <div class="dimension-bar" style="height: 70%;">
+                    <div class="bar-value">42</div>
+                </div>
+                <div class="bar-label">Satisfied with 2D</div>
+            </div>
+            <div style="height: 40%;">
+                <div class="dimension-bar dimension-bar-3d" style="height: 40%;">
+                    <div class="bar-value">16</div>
+                </div>
+                <div class="bar-label">Prefer 3D</div>
+            </div>
+        </div>
+        
+        <h2>Server Stability Issues</h2>
+        <div class="chart-container">
+            <div style="height: 80%;">
+                <div class="bar negative-bar" style="height: 80%;">
+                    <div class="bar-value">23</div>
+                </div>
+                <div class="bar-label">Frequent Crashes</div>
+            </div>
+            <div style="height: 60%;">
+                <div class="bar warning-bar" style="height: 60%;">
+                    <div class="bar-value">18</div>
+                </div>
+                <div class="bar-label">Connection Loss</div>
+            </div>
+            <div style="height: 40%;">
+                <div class="bar warning-bar" style="height: 40%;">
+                    <div class="bar-value">12</div>
+                </div>
+                <div class="bar-label">Slow Response</div>
+            </div>
+            <div style="height: 20%;">
+                <div class="bar" style="height: 20%;">
+                    <div class="bar-value">5</div>
+                </div>
+                <div class="bar-label">Stable</div>
             </div>
         </div>
         
@@ -168,28 +278,38 @@
             <div class="rating-item">
                 <div style="font-size: 24px; color: #ffc107;">★</div>
                 <div>5 Stars</div>
-                <div>15 responses</div>
-            </div>
-            <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★</div>
-                <div>4 Stars</div>
-                <div>12 responses</div>
-            </div>
-            <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★</div>
-                <div>3 Stars</div>
-                <div>8 responses</div>
-            </div>
-            <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★</div>
-                <div>2 Stars</div>
                 <div>6 responses</div>
             </div>
             <div class="rating-item">
                 <div style="font-size: 24px; color: #ffc107;">★</div>
-                <div>1 Star</div>
-                <div>4 responses</div>
+                <div>4 Stars</div>
+                <div>9 responses</div>
             </div>
+            <div class="rating-item">
+                <div style="font-size: 24px; color: #ffc107;">★</div>
+                <div>3 Stars</div>
+                <div>14 responses</div>
+            </div>
+            <div class="rating-item">
+                <div style="font-size: 24px; color: #ffc107;">★</div>
+                <div>2 Stars</div>
+                <div>12 responses</div>
+            </div>
+            <div class="rating-item">
+                <div style="font-size: 24px; color: #ffc107;">★</div>
+                <div>1 Star</div>
+                <div>17 responses</div>
+            </div>
+        </div>
+        
+        <div class="dimension-section">
+            <h2>2D vs 3D Feedback</h2>
+            <p>Some players expressed preferences regarding the game's visual presentation:</p>
+            <ul>
+                <li><strong>Pro-2D feedback:</strong> "2D art style fits the game perfectly and runs smoothly"</li>
+                <li><strong>Pro-3D feedback:</strong> "Why is this still 2D? Modern games should be 3D!"</li>
+                <li><strong>Neutral feedback:</strong> "Visual style is fine, focus on gameplay over graphics"</li>
+            </ul>
         </div>
         
         <h2>Response Details</h2>
@@ -325,18 +445,135 @@
                     <td>3/5</td>
                     <td>Meh. Had potential but execution was lacking. Needs significant improvements.</td>
                 </tr>
+                <tr>
+                    <td>Christopher Martin</td>
+                    <td>chris@example.com</td>
+                    <td>25-34</td>
+                    <td>Expert</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">Server crashes constantly! Can barely play for 10 minutes without disconnection.</td>
+                </tr>
+                <tr>
+                    <td>Jennifer Thompson</td>
+                    <td>jenny@example.com</td>
+                    <td>35-44</td>
+                    <td>Intermediate</td>
+                    <td>2/5</td>
+                    <td class="feedback-negative">Game is decent but servers are down half the time. Very frustrating experience.</td>
+                </tr>
+                <tr>
+                    <td>Matthew Jackson</td>
+                    <td>matthew@example.com</td>
+                    <td>25-34</td>
+                    <td>Expert</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">Servers crash every few minutes. Impossible to enjoy the game with such instability.</td>
+                </tr>
+                <tr>
+                    <td>Ashley Harris</td>
+                    <td>ashley@example.com</td>
+                    <td>18-24</td>
+                    <td>Beginner</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">Wanted to like this game but servers are completely unreliable. Disconnected 5 times today.</td>
+                </tr>
+                <tr>
+                    <td>Joshua Walker</td>
+                    <td>joshua@example.com</td>
+                    <td>35-44</td>
+                    <td>Intermediate</td>
+                    <td>2/5</td>
+                    <td class="feedback-negative">Gameplay is okay but server stability is terrible. Please fix the frequent crashes!</td>
+                </tr>
+                <tr>
+                    <td>Stephanie Allen</td>
+                    <td>stephanie@example.com</td>
+                    <td>25-34</td>
+                    <td>Expert</td>
+                    <td>3/5</td>
+                    <td>Good concept but server issues make it unplayable most of the time. Needs immediate attention.</td>
+                </tr>
+                <tr>
+                    <td>Brian Young</td>
+                    <td>brian@example.com</td>
+                    <td>45+</td>
+                    <td>Intermediate</td>
+                    <td>2/5</td>
+                    <td class="feedback-negative">Server crashes are ruining the experience. Spend more time fixing infrastructure than playing.</td>
+                </tr>
+                <tr>
+                    <td>Nicole King</td>
+                    <td>nicole@example.com</td>
+                    <td>25-34</td>
+                    <td>Expert</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">Constant disconnections and server errors. Game is unplayable in its current state.</td>
+                </tr>
+                <tr>
+                    <td>Steven Scott</td>
+                    <td>steven@example.com</td>
+                    <td>25-34</td>
+                    <td>Expert</td>
+                    <td>2/5</td>
+                    <td class="feedback-negative">Why is this still 2D in 2023? All modern games should be 3D. This looks outdated.</td>
+                </tr>
+                <tr>
+                    <td>Rebecca Green</td>
+                    <td>rebecca@example.com</td>
+                    <td>35-44</td>
+                    <td>Intermediate</td>
+                    <td>3/5</td>
+                    <td class="feedback-warning">Gameplay is fine but why not 3D? Everything else is 3D now. Feels like a step backward.</td>
+                </tr>
+                <tr>
+                    <td>Kevin Adams</td>
+                    <td>kevin@example.com</td>
+                    <td>18-24</td>
+                    <td>Expert</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">This is 2023, not the 90s! Why is this still 2D when all serious games are 3D? Unacceptable!</td>
+                </tr>
+                <tr>
+                    <td>Lisa Nelson</td>
+                    <td>lisa@example.com</td>
+                    <td>25-34</td>
+                    <td>Intermediate</td>
+                    <td>2/5</td>
+                    <td class="feedback-negative">The 2D graphics look so old-fashioned. Why didn't they make it 3D like other modern games?</td>
+                </tr>
+                <tr>
+                    <td>Ryan Baker</td>
+                    <td>ryan@example.com</td>
+                    <td>35-44</td>
+                    <td>Expert</td>
+                    <td>3/5</td>
+                    <td>Good concept but I expected 3D graphics. The 2D style feels dated compared to current standards.</td>
+                </tr>
             </tbody>
         </table>
         
         <div class="key-insights">
             <h2>Key Insights</h2>
             <ul>
+                <li><strong>Server Issues:</strong> 41% of feedback mentions server crashes and connection problems</li>
+                <li><strong>Dimension Feedback:</strong> 28% of players requested 3D instead of 2D graphics</li>
                 <li><strong>Demographics:</strong> The majority of players are between 25-34 years old</li>
                 <li><strong>Experience Level:</strong> Most players consider themselves intermediate gamers</li>
-                <li><strong>Game Appeal:</strong> The game is particularly popular with younger demographics (18-34)</li>
-                <li><strong>Strengths:</strong> Players appreciate the innovative door-knocking mechanic and engaging gameplay</li>
-                <li><strong>Areas for Improvement:</strong> Some players report performance issues, lack of variety, and UI problems</li>
-                <li><strong>Constructive Feedback:</strong> Several suggestions for more challenging content, better optimization, and improved user interface</li>
+                <li><strong>Game Appeal:</strong> The game concept is liked, but technical issues are major deterrents</li>
+                <li><strong>Areas for Improvement:</strong> Critical need to address server stability and consider 3D implementation</li>
+                <li><strong>Performance Impact:</strong> Server issues have significantly lowered overall satisfaction ratings</li>
+            </ul>
+        </div>
+        
+        <div class="server-status">
+            <h3>Recommended Actions</h3>
+            <ul>
+                <li>Immediate server infrastructure upgrade</li>
+                <li>Implement redundant server systems</li>
+                <li>Conduct thorough stability testing</li>
+                <li>Consider feasibility of 3D implementation</li>
+                <li>Improve connection protocols</li>
+                <li>Provide compensation for affected users</li>
             </ul>
         </div>
     </div>
@@ -344,15 +581,17 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Calculate statistics based on sample data
-            const totalResponses = 45;
-            const avgRating = 3.8;
+            const totalResponses = 58;
+            const avgRating = 3.3;
             const commonAge = "25-34";
-            const complaintRate = 22;
+            const serverComplaints = 41;
+            const dimensionComplaints = 28;
             
             document.getElementById('total-responses').textContent = totalResponses;
             document.getElementById('avg-rating').textContent = avgRating + "/5";
             document.getElementById('common-age').textContent = commonAge;
-            document.getElementById('complaint-rate').textContent = complaintRate + "%";
+            document.getElementById('server-complaints').textContent = serverComplaints + "%";
+            document.getElementById('dimension-complaints').textContent = dimensionComplaints + "%";
             
             // Add functionality to sort table columns if needed
             const headers = document.querySelectorAll('#results-table th');
