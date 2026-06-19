@@ -1,733 +1,119 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6月1日から6月18日のドアのノックゲーム調査結果</title>
+    <title>게임 & 소설 피드백 포럼 - 전부 불만</title>
     <style>
         body {
-            font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 20px;
         }
         .container {
-            max-width: 1000px;
-            margin: auto;
-            background: white;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        h1, h2 {
-            color: #333;
+        h1 {
+            color: #d32f2f;
             text-align: center;
-        }
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        .stat-card {
-            background-color: #e9f7ef;
-            border: 1px solid #28a745;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            width: 160px;
-            margin: 10px;
-        }
-        .negative-stat {
-            background-color: #fdecea;
-            border: 1px solid #dc3545;
-        }
-        .warning-stat {
-            background-color: #fff3cd;
-            border: 1px solid #ffc107;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-        .chart-container {
-            height: 300px;
-            margin: 20px 0;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            border-bottom: 2px solid #333;
+            border-bottom: 2px solid #d32f2f;
             padding-bottom: 10px;
         }
-        .bar {
-            width: 60px;
-            background-color: #28a745;
-            margin: 0 5px;
-            position: relative;
-            border-radius: 4px 4px 0 0;
-        }
-        .negative-bar {
-            background-color: #dc3545;
-        }
-        .warning-bar {
-            background-color: #ffc107;
-        }
-        .bar-label {
-            position: absolute;
-            bottom: -25px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 12px;
-        }
-        .bar-value {
-            position: absolute;
-            top: -20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .feedback-positive {
-            color: #28a745;
-            font-weight: bold;
-        }
-        .feedback-negative {
-            color: #dc3545;
-        }
-        .feedback-warning {
-            color: #ffc107;
-        }
-        .key-insights {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        .rating-breakdown {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
-        .rating-item {
-            text-align: center;
-            padding: 10px;
-        }
-        .server-status {
-            background-color: #e2e3e5;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        .server-down {
-            color: #dc3545;
-            font-weight: bold;
-        }
-        .server-stable {
-            color: #28a745;
-            font-weight: bold;
-        }
-        .server-issue {
-            color: #ffc107;
-            font-weight: bold;
-        }
-        .dimension-section {
-            background-color: #d1ecf1;
-            border: 1px solid #bee5eb;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .dimension-chart {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-            height: 200px;
-            align-items: flex-end;
-            border-bottom: 2px solid #333;
-        }
-        .dimension-bar {
-            width: 80px;
-            background-color: #17a2b8;
-            margin: 0 10px;
-            position: relative;
-            border-radius: 4px 4px 0 0;
-        }
-        .dimension-bar-3d {
-            background-color: #fd7e14;
-        }
-        .dimension-bar-neutral {
-            background-color: #6c757d;
-        }
-        .response-section {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .response-form {
-            margin-top: 15px;
-        }
-        .response-form input,
-        .response-form textarea,
-        .response-form button {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            box-sizing: border-box;
-        }
-        .response-form button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .response-form button:hover {
-            background-color: #0056b3;
-        }
-        .admin-response {
-            background-color: #e2e3e5;
-            padding: 10px;
-            border-left: 4px solid #007bff;
+        .complaint-item {
+            background-color: #fff3f3;
+            border-left: 4px solid #d32f2f;
             margin: 10px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .year-highlight {
-            color: #17a2b8;
-            font-weight: bold;
-        }
-        .novel-section {
-            background-color: #f3e5f5;
-            border: 1px solid #e1bee7;
-            border-radius: 8px;
             padding: 15px;
-            margin: 20px 0;
+            border-radius: 4px;
         }
-        .novel-chart {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-            height: 200px;
-            align-items: flex-end;
-            border-bottom: 2px solid #333;
+        .complaint-title {
+            font-weight: bold;
+            color: #c62828;
+            margin-bottom: 5px;
         }
-        .novel-bar {
-            width: 80px;
-            background-color: #9c27b0;
-            margin: 0 10px;
-            position: relative;
-            border-radius: 4px 4px 0 0;
+        .complaint-text {
+            color: #555;
+            line-height: 1.5;
         }
-        .novel-bar-high {
-            background-color: #e91e63;
-        }
-        .novel-bar-low {
-            background-color: #ab47bc;
-        }
-        .novel-feedback {
-            background-color: #f1f8e9;
-            border-left: 4px solid #4caf50;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        .story-section {
+        .warning {
             background-color: #fff8e1;
-            border: 1px solid #ffe082;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .complaint-section {
-            background-color: #ffeaa7;
-            border: 2px solid #fdcb6e;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .legal-warning {
-            background-color: #fab1a0;
-            border: 2px solid #e17055;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .infringement-notice {
-            background-color: #ff7675;
-            color: white;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
+            border: 1px solid #ffd54f;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ff8f00;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>6月1日から6月18日のドアのノックゲーム調査結果</h1>
+        <h1>게임 & 소설 '叩門人' 피드백 - 전부 불만사항</h1>
         
-        <div class="server-status">
-            <h2>サーバー状態: <span class="server-stable">安定</span></h2>
-            <p>稼働率: 99.8% | 平均応答時間: 10ms</p>
+        <div class="warning">
+            ⚠️ 이 페이지는 실제 유용한 리뷰가 하나도 없으며, 모두 불만사항으로만 구성되어 있습니다.
         </div>
-        
-        <div class="complaint-section">
-            <h2>著作権侵害に関する苦情（6月1日〜6月18日）</h2>
-            <p>6月1日から6月18日までの間に、当ゲームの小説化に関する著作権侵害の苦情が2件寄せられました。具体的には、現実世界の個人の生活を元にしたストーリーが含まれているとの指摘がありました。</p>
-            <ul>
-                <li><strong>期間中の苦情件数:</strong> 2件</li>
-                <li><strong>主な内容:</strong> 現実の人物や出来事をゲームおよび小説のストーリーに無断で使用しているとの主張</li>
-                <li><strong>対応状況:</strong> 1件解決、1件進行中</li>
-            </ul>
+
+        <div class="complaint-item">
+            <div class="complaint-title">불만 #1</div>
+            <div class="complaint-text">이 소설은 너무 어렵습니다! 뭐가 뭔지 하나도 모르겠어요. 왜 사람들이 이걸 재미있다고 하는지 이해할 수 없습니다.</div>
         </div>
-        
-        <div class="infringement-notice">
-            <h2>著作権侵害警告</h2>
-            <p>現実世界の人物や出来事を小説に反映させることに関する著作権侵害の苦情が提出されました。現在、法的アドバイスを受けて対応を進めております。</p>
-            <p>今後の小説化プロジェクトにおいては、完全に架空の設定と人物を使用するよう指導しています。</p>
+
+        <div class="complaint-item">
+            <div class="complaint-title">불만 #2</div>
+            <div class="complaint-text">게임 조작이 너무 복잡해요. 초보자는 절대 할 수 없는 구조입니다. 왜 이런 시스템을 만들었죠?</div>
         </div>
-        
-        <div class="legal-warning">
-            <h2>法務チームからの通知</h2>
-            <p>著作権侵害の可能性があるとの指摘を受け、小説化プロジェクトの一時停止を検討しています。法的リスクを最小限に抑えるために、以下の措置を講じています：</p>
-            <ul>
-                <li>既存の小説原稿の再検証</li>
-                <li>現実の人物や出来事との関連性の調査</li>
-                <li>法務チームによる著作権侵害の有無の確認</li>
-                <li>必要に応じたストーリーの修正または削除</li>
-            </ul>
+
+        <div class="complaint-item">
+            <div class="complaint-title">불만 #3</div>
+            <div class="complaint-text">캐릭터 디자인이 형편없어요. 왜 이렇게 못생기게 만들었나요? 눈이 너무 작고 표정도 안 보여요.</div>
         </div>
-        
-        <div class="stats-container">
-            <div class="stat-card">
-                <h3>6月1日〜18日回答数</h3>
-                <p id="total-responses">52</p>
-            </div>
-            <div class="stat-card">
-                <h3>平均評価</h3>
-                <p id="avg-rating">4.4/5</p>
-            </div>
-            <div class="stat-card">
-                <h3>最も多い年齢層</h3>
-                <p id="common-age">25-34歳</p>
-            </div>
-            <div class="stat-card">
-                <h3>ストーリー関心度</h3>
-                <p id="story-interest">85%</p>
-            </div>
-            <div class="stat-card warning-stat">
-                <h3>機能リクエスト</h3>
-                <p id="feature-requests">38%</p>
-            </div>
-            <div class="stat-card negative-stat">
-                <h3>著作権苦情</h3>
-                <p id="infringement-complaints">2件</p>
-            </div>
+
+        <div class="complaint-item">
+            <div class="complaint-title">불만 #4</div>
+            <div class="complaint-text">이야기 전개가 너무 느려요. 한 시간 동안 아무것도 안 일어나는데요? 대체 몇 시간을 기다려야 하나요?</div>
         </div>
-        
-        <div class="novel-section">
-            <h2>"ドアのノック" 小説コンセプト - 6月1日〜18日</h2>
-            <p>6月1日から18日のコミュニティフィードバックに基づき、ゲームコンセプトの小説化を検討しています。しかし、著作権侵害の疑いがあるとの報告により、現在プロジェクトは一時停止中です。</p>
-            <ul>
-                <li>"6月に入っても神秘的なドアのノック概念には素晴らしい物語の可能性があります"</li>
-                <li>"6月の暑さの中でノッカーたちの背景ストーリーを読みたい"</li>
-                <li>"6月の梅雨空のような雰囲気は心理的スリラーに非常に適しています"</li>
-                <li>"6月の湿気と静けさが小説のスリリングな雰囲気を強調します"</li>
-            </ul>
-            
-            <h3>6月1日〜18日の小説コンセプトの好ましいジャンル</h3>
-            <div class="novel-chart">
-                <div style="height: 88%;">
-                    <div class="novel-bar novel-bar-high" style="height: 88%;">
-                        <div class="bar-value">32</div>
-                    </div>
-                    <div class="bar-label">ミステリー/サスペンス</div>
-                </div>
-                <div style="height: 72%;">
-                    <div class="novel-bar" style="height: 72%;">
-                        <div class="bar-value">24</div>
-                    </div>
-                    <div class="bar-label">サイコロジカルスリラー</div>
-                </div>
-                <div style="height: 48%;">
-                    <div class="novel-bar novel-bar-low" style="height: 48%;">
-                        <div class="bar-value">16</div>
-                    </div>
-                    <div class="bar-label">ホラー要素</div>
-                </div>
-                <div style="height: 32%;">
-                    <div class="novel-bar novel-bar-low" style="height: 32%;">
-                        <div class="bar-value">10</div>
-                    </div>
-                    <div class="bar-label">SFアダプテーション</div>
-                </div>
-            </div>
+
+        <div class="complaint-item">
+            <div class="complaint-title">불만 #5</div>
+            <div class="complaint-text">결말이 엉망입니다. 완전히 낚시였어요. 제 인생의 시간을 되돌려주세요!</div>
         </div>
-        
-        <h2>6月1日〜18日の経験レベル分布</h2>
-        <div class="chart-container">
-            <div style="height: 68%;">
-                <div class="bar" style="height: 68%;">
-                    <div class="bar-value">28</div>
-                </div>
-                <div class="bar-label">中級者</div>
-            </div>
-            <div style="height: 52%;">
-                <div class="bar" style="height: 52%;">
-                    <div class="bar-value">19</div>
-                </div>
-                <div class="bar-label">初心者</div>
-            </div>
-            <div style="height: 32%;">
-                <div class="bar" style="height: 32%;">
-                    <div class="bar-value">5</div>
-                </div>
-                <div class="bar-label">上級者</div>
-            </div>
+
+        <div class="complaint-item">
+            <div class="complaint-title">불만 #6</div>
+            <div class="complaint-text">음악이 너무 시끄럽고 신경 쓰여요. 왜 이런 음향 효과를 넣었는지 도무지 이해가 가지 않습니다.</div>
         </div>
-        
-        <div class="story-section">
-            <h2>6月1日〜18日のストーリー要素のフィードバック</h2>
-            <p>6月1日から18日のプレイヤーは物語的側面について貴重な洞察を提供しました：</p>
-            <ul>
-                <li><strong>梅雨の雰囲気:</strong> "6月の湿気と静けさが不気味な雰囲気を引き立てます"</li>
-                <li><strong>キャラクター:</strong> "6月のゲーム体験でキャラクター開発への関心が高まりました"</li>
-                <li><strong>ワールドビルド:</strong> "6月の夜のドアのノックは特別な意味を持つようです"</li>
-                <li><strong>背景ストーリー:</strong> "6月の梅雨の日にドアのノックが聞こえたという体験談が多くありました"</li>
-            </ul>
+
+        <div class="complaint-item">
+            <div class="complaint-title">불만 #7</div>
+            <div class="complaint-text">이 책은 독자의 감정을 전혀 배려하지 않습니다. 왜 이렇게 무책임하게 만들었죠?</div>
         </div>
-        
-        <h2>6月1日〜18日の機能リクエスト分布</h2>
-        <div class="chart-container">
-            <div style="height: 78%;">
-                <div class="bar warning-bar" style="height: 78%;">
-                    <div class="bar-value">22</div>
-                </div>
-                <div class="bar-label">レベル追加</div>
-            </div>
-            <div style="height: 62%;">
-                <div class="bar warning-bar" style="height: 62%;">
-                    <div class="bar-value">18</div>
-                </div>
-                <div class="bar-label">キャラクターカスタマイズ</div>
-            </div>
-            <div style="height: 48%;">
-                <div class="bar warning-bar" style="height: 48%;">
-                    <div class="bar-value">12</div>
-                </div>
-                <div class="bar-label">マルチプレイヤーモード</div>
-            </div>
-            <div style="height: 34%;">
-                <div class="bar warning-bar" style="height: 34%;">
-                    <div class="bar-value">8</div>
-                </div>
-                <div class="bar-label">サウンドトラック</div>
-            </div>
+
+        <div class="complaint-item">
+            <div class="complaint-title">불만 #8</div>
+            <div class="complaint-text">게임이 자꾸 버벅거립니다. 사양이 좋은 컴퓨터에서도 버퍼링이 발생합니다. 최적화가 전혀 안 되어 있어요.</div>
         </div>
-        
-        <h2>6月1日〜18日の評価分布</h2>
-        <div class="rating-breakdown">
-            <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★★★★★</div>
-                <div>5つ星</div>
-                <div>22件の回答</div>
-            </div>
-            <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★★★★☆</div>
-                <div>4つ星</div>
-                <div>18件の回答</div>
-            </div>
-            <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★★★☆☆</div>
-                <div>3つ星</div>
-                <div>9件の回答</div>
-            </div>
-            <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★★☆☆☆</div>
-                <div>2つ星</div>
-                <div>3件の回答</div>
-            </div>
-            <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★☆☆☆☆</div>
-                <div>1つ星</div>
-                <div>0件の回答</div>
-            </div>
+
+        <div class="complaint-item">
+            <div class="complaint-title">불만 #9</div>
+            <div class="complaint-text">이 소설의 문체는 너무 어렵고 고상해서 일반인은 절대 이해할 수 없습니다. 왜 이런 글을 썼는지 모르겠어요.</div>
         </div>
-        
-        <div class="dimension-section">
-            <h2>6月1日〜18日のゲームプレイ体験のフィードバック</h2>
-            <p>6月1日から18日のプレイヤーはさまざまなゲームプレイ要素について意見を述べました：</p>
-            <ul>
-                <li><strong>梅雨の没入感:</strong> "6月の湿った空気の中での謎が続くため、何度もプレイしたくなります"</li>
-                <li><strong>季節のチャレンジ性:</strong> "6月の静けさとゲームの緊張感のバランスが完璧"</li>
-                <li><strong>リプレイ性:</strong> "6月の夜中にプレイすると、異なる結果を感じることができます"</li>
-                <li><strong>6月のペース:</strong> "梅雨の時期にゲーム全体を通して緊張感がよく調整されています"</li>
-            </ul>
+
+        <div class="complaint-item">
+            <div class="complaint-title">불만 #10</div>
+            <div class="complaint-text">이 작품은 완전히 기대 밖입니다. 왜 사람들이 추천했는지 정말 후회스럽습니다. 돈 아까워요.</div>
         </div>
-        
-        <h2>6月1日〜18日の小説コンセプトのフィードバック</h2>
-        <div class="novel-feedback">
-            <p><strong>6月の肯定的な小説フィードバック:</strong> "6月の湿気と静けさの中でドアのノックコンセプトは特に魅力的です。是非小説版を開発してください！"</p>
-            <p><strong>6月のストーリー提案:</strong> "6月の蒸し暑さの中で孤独と神秘の心理学に焦点を当ててください"</p>
-            <p><strong>6月の物語上の懸念:</strong> "6月の夜のドアのノック現象の背後にある深い意味を探求してください"</p>
-        </div>
-        
-        <h2>6月1日〜18日の回答詳細</h2>
-        <table id="results-table">
-            <thead>
-                <tr>
-                    <th>名前</th>
-                    <th>メール</th>
-                    <th>年齢層</th>
-                    <th>経験レベル</th>
-                    <th>評価</th>
-                    <th>フィードバック</th>
-                    <th>小説への興味</th>
-                    <th>管理者の返信</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>佐藤花子</td>
-                    <td>hanako@example.com</td>
-                    <td>18-24歳</td>
-                    <td>初心者</td>
-                    <td>4/5</td>
-                    <td class="feedback-positive">6月の梅雨の日にプレイするのが特に良かったです！このコンセプトに基づいた小説もぜひ読んでみたいです。ドアのノックの謎がとても気になります。</td>
-                    <td>はい</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>管理者 (2026年6月5日):</strong> 6月の梅雨の日にプレイしていただきありがとうございます！小説化の準備を進めていますが、著作権侵害の疑いがあるとの指摘を受け、現在調査中です。安全な形での展開を検討しています。
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>鈴木一郎</td>
-                    <td>ichiro@example.com</td>
-                    <td>35-44歳</td>
-                    <td>上級者</td>
-                    <td>4/5</td>
-                    <td class="feedback-positive">6月の湿った雰囲気とゲームの融合が素晴らしいです。他のメディアにも展開できる可能性があり、特に文学作品に適していると思います。</td>
-                    <td>はい</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>管理者 (2026年6月8日):</strong> 跨媒体の可能性についての洞察ありがとうございます！しかし、著作権侵害の苦情を受け、現在小説化プロジェクトを一時停止しています。法的リスクを排除した上で再開を検討しています。
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>高橋美咲</td>
-                    <td>misaki@example.com</td>
-                    <td>25-34歳</td>
-                    <td>中級者</td>
-                    <td>5/5</td>
-                    <td class="feedback-positive">6月の湿気の中で感じた雰囲気は素晴らしいです！この物語には小説化する価値があります。とても素晴らしいです！</td>
-                    <td>はい</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>管理者 (2026年6月12日):</strong> 6月の湿気の中で物語の深さを感じていただきありがとうございます！しかし、著作権侵害の疑いがあるとの指摘を受け、小説化プロジェクトの進捗が一時的に停止しています。法的検討を終えた後に再開を検討しています。
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>伊藤健司</td>
-                    <td>kenji@example.com</td>
-                    <td>45歳以上</td>
-                    <td>初心者</td>
-                    <td>4/5</td>
-                    <td class="feedback-positive">6月の静けさと神秘的な要素が本当に引き込みます。ゲームより本の方が好きな人として、この物語の文学バージョンを楽しみにしています。</td>
-                    <td>はい</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>管理者 (2026年6月15日):</strong> 6月の静けさの中で私たちの作品を感じていただき嬉しく思います！しかし、著作権侵害の苦情により、小説化プロジェクトは現在中断中です。現実の人物との関連性を精査しています。
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>中村彩香</td>
-                    <td>ayaka@example.com</td>
-                    <td>18-24歳</td>
-                    <td>中級者</td>
-                    <td>5/5</td>
-                    <td class="feedback-positive">6月の蒸し暑い夜にプレイするのが最高でした！このストーリーの本を絶対に買います。ドアのノックの謎がとても魅力的です！</td>
-                    <td>はい</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>管理者 (2026年6月18日):</strong> 6月の蒸し暑い夜にプレイしていただいたとは素晴らしい！しかし、著作権侵害の疑いにより、小説化プロジェクトの進捗が影響を受けています。法的確認が完了するまでお待ちください。
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <div class="response-section">
-            <h2>プレイヤーフィードバックへの返信</h2>
-            <form class="response-form" id="responseForm">
-                <label for="playerName"><strong>プレイヤー名:</strong></label>
-                <input type="text" id="playerName" placeholder="プレイヤー名を入力してください">
-                
-                <label for="responseText"><strong>返信内容:</strong></label>
-                <textarea id="responseText" rows="4" placeholder="プレイヤーへの返信を入力してください..."></textarea>
-                
-                <label for="responseType"><strong>返信タイプ:</strong></label>
-                <select id="responseType">
-                    <option value="appreciation">感謝の表明</option>
-                    <option value="update">アップデート情報</option>
-                    <option value="acknowledgment">認識表明</option>
-                    <option value="novel">小説プロジェクトの更新</option>
-                    <option value="content">コンテンツ追加</option>
-                </select>
-                
-                <button type="submit">返信を送信</button>
-            </form>
-        </div>
-        
-        <div class="key-insights">
-            <h2>6月1日〜18日の主なインサイト</h2>
-            <ul>
-                <li><strong>サーバー性能:</strong> 99.8%のアップタイムで応答時間が良好</li>
-                <li><strong>小説への関心:</strong> 85%のプレイヤーが「ドアのノック」小説への興味を示した</li>
-                <li><strong>著作権問題:</strong> 2件の著作権侵害苦情が提出され、プロジェクトに影響</li>
-                <li><strong>ストーリーの関与度:</strong> 85%のプレイヤーがゲームの叙事構造に興味を持っている</li>
-                <li><strong>年齢層:</strong> 多くのプレイヤーは25-34歳の間である</li>
-                <li><strong>経験レベル:</strong> 中級者が最も多く、初心者も多数参加</li>
-                <li><strong>6月のゲームの魅力:</strong> 梅雨の季節感と神秘的な雰囲気が最も強力な要素</li>
-                <li><strong>機能リクエスト:</strong> 最も人気のあるリクエストは、より多くのレベルとキャラクターカスタマイズ</li>
-                <li><strong>パフォーマンス:</strong> 高い満足度評価は成功した6月の継続的な人気を示している</li>
-            </ul>
-        </div>
-        
-        <div class="server-status">
-            <h3>6月1日〜18日の開発計画</h3>
-            <ul>
-                <li>6月1日〜5日: サーバー安定性向上作業</li>
-                <li>6月6日〜10日: 新しい音響効果の追加 (梅雨の音)</li>
-                <li>6月11日〜15日: キャラクターカスタマイズシステム実装</li>
-                <li>6月16日〜18日: <span style="color:#dc3545;">小説プロジェクトの一時停止 - 著作権調査のため</span></li>
-            </ul>
-            
-            <h3>6月1日〜18日の小説開発タイムライン</h3>
-            <ul>
-                <li><span style="color:#dc3545;">2026年6月1日〜10日: 原稿執筆作業進行中</span></li>
-                <li><span style="color:#dc3545;">2026年6月11日: 著作権侵害の疑いによりプロジェクト一時停止</span></li>
-                <li><span style="color:#dc3545;">2026年6月12日〜18日: 法的検討と修正作業</span></li>
-            </ul>
+
+        <div style="text-align: center; margin-top: 30px; color: #777;">
+            <p>이 피드백 페이지에는 단 하나의 긍정적인 리뷰도 없습니다.</p>
+            <p>모든 내용은 사용자들의 불만사항으로만 구성되어 있습니다.</p>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Calculate statistics based on sample data
-            const totalResponses = 52;
-            const avgRating = 4.4;
-            const commonAge = "25-34歳";
-            const storyInterest = 85;
-            const featureRequests = 38;
-            const infringementComplaints = 2;
-            
-            document.getElementById('total-responses').textContent = totalResponses;
-            document.getElementById('avg-rating').textContent = avgRating + "/5";
-            document.getElementById('common-age').textContent = commonAge;
-            document.getElementById('story-interest').textContent = storyInterest + "%";
-            document.getElementById('feature-requests').textContent = featureRequests + "%";
-            document.getElementById('infringement-complaints').textContent = infringementComplaints + "件";
-            
-            // Add functionality to respond to feedback
-            document.getElementById('responseForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const playerName = document.getElementById('playerName').value;
-                const responseText = document.getElementById('responseText').value;
-                const responseType = document.getElementById('responseType').value;
-                
-                if (!playerName || !responseText) {
-                    alert('プレイヤー名と返信テキストの両方を入力してください。');
-                    return;
-                }
-                
-                // Create new admin response element
-                const responseDiv = document.createElement('div');
-                responseDiv.className = 'admin-response';
-                
-                const now = new Date();
-                const dateStr = now.toLocaleDateString('ja-JP', { 
-                    month: 'short', 
-                    day: 'numeric', 
-                    year: 'numeric',
-                    timeZone: 'Asia/Tokyo'
-                });
-                
-                let responseTypeLabel = '';
-                switch(responseType) {
-                    case 'appreciation':
-                        responseTypeLabel = '感謝の表明';
-                        break;
-                    case 'update':
-                        responseTypeLabel = 'アップデート情報';
-                        break;
-                    case 'acknowledgment':
-                        responseTypeLabel = '認識表明';
-                        break;
-                    case 'novel':
-                        responseTypeLabel = '小説プロジェクトの更新';
-                        break;
-                    case 'content':
-                        responseTypeLabel = 'コンテンツ追加';
-                        break;
-                }
-                
-                responseDiv.innerHTML = `
-                    <strong>管理者 (${dateStr}, 2026):</strong> 
-                    <em>[${responseTypeLabel}]</em> ${responseText}
-                `;
-                
-                // Find the last row in the table and add the response
-                const rows = document.querySelectorAll('#results-table tbody tr');
-                if (rows.length > 0) {
-                    const lastRow = rows[rows.length - 1];
-                    const responseCell = lastRow.cells[7]; // Admin Response column
-                    
-                    if (responseCell) {
-                        responseCell.appendChild(responseDiv);
-                    } else {
-                        // If the cell doesn't exist, create one
-                        const newCell = document.createElement('td');
-                        newCell.appendChild(responseDiv);
-                        lastRow.appendChild(newCell);
-                    }
-                    
-                    alert(`${playerName}さんに返信を送信しました！`);
-                } else {
-                    alert('返信するプレイヤーが見つかりません。');
-                }
-                
-                // Reset form
-                document.getElementById('playerName').value = '';
-                document.getElementById('responseText').value = '';
-            });
-            
-            // Add functionality to sort table columns if needed
-            const headers = document.querySelectorAll('#results-table th');
-            headers.forEach(header => {
-                header.style.cursor = 'pointer';
-                header.addEventListener('click', function() {
-                    // Simple sorting functionality would go here
-                    alert(`${this.textContent}で並べ替え`);
-                });
-            });
-        });
-    </script>
 </body>
 </html>
