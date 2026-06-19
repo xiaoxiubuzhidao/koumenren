@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 Door Knocking Game Survey Results</title>
+    <title>6月1日から6月18日のドアのノックゲーム調査結果</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
@@ -244,399 +244,328 @@
             padding: 10px;
             margin: 10px 0;
         }
+        .story-section {
+            background-color: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .complaint-section {
+            background-color: #ffeaa7;
+            border: 2px solid #fdcb6e;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .legal-warning {
+            background-color: #fab1a0;
+            border: 2px solid #e17055;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .infringement-notice {
+            background-color: #ff7675;
+            color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>2026 Door Knocking Game Survey Results</h1>
+        <h1>6月1日から6月18日のドアのノックゲーム調査結果</h1>
         
         <div class="server-status">
-            <h2>Server Status: <span class="server-down">CRITICAL - 100% FAILURE RATE</span></h2>
-            <p>Uptime: 0% | Total downtime: 24/7 since launch in 2026</p>
+            <h2>サーバー状態: <span class="server-stable">安定</span></h2>
+            <p>稼働率: 99.8% | 平均応答時間: 10ms</p>
+        </div>
+        
+        <div class="complaint-section">
+            <h2>著作権侵害に関する苦情（6月1日〜6月18日）</h2>
+            <p>6月1日から6月18日までの間に、当ゲームの小説化に関する著作権侵害の苦情が2件寄せられました。具体的には、現実世界の個人の生活を元にしたストーリーが含まれているとの指摘がありました。</p>
+            <ul>
+                <li><strong>期間中の苦情件数:</strong> 2件</li>
+                <li><strong>主な内容:</strong> 現実の人物や出来事をゲームおよび小説のストーリーに無断で使用しているとの主張</li>
+                <li><strong>対応状況:</strong> 1件解決、1件進行中</li>
+            </ul>
+        </div>
+        
+        <div class="infringement-notice">
+            <h2>著作権侵害警告</h2>
+            <p>現実世界の人物や出来事を小説に反映させることに関する著作権侵害の苦情が提出されました。現在、法的アドバイスを受けて対応を進めております。</p>
+            <p>今後の小説化プロジェクトにおいては、完全に架空の設定と人物を使用するよう指導しています。</p>
+        </div>
+        
+        <div class="legal-warning">
+            <h2>法務チームからの通知</h2>
+            <p>著作権侵害の可能性があるとの指摘を受け、小説化プロジェクトの一時停止を検討しています。法的リスクを最小限に抑えるために、以下の措置を講じています：</p>
+            <ul>
+                <li>既存の小説原稿の再検証</li>
+                <li>現実の人物や出来事との関連性の調査</li>
+                <li>法務チームによる著作権侵害の有無の確認</li>
+                <li>必要に応じたストーリーの修正または削除</li>
+            </ul>
         </div>
         
         <div class="stats-container">
             <div class="stat-card">
-                <h3>Total Responses</h3>
-                <p id="total-responses">72</p>
+                <h3>6月1日〜18日回答数</h3>
+                <p id="total-responses">52</p>
             </div>
             <div class="stat-card">
-                <h3>Avg Rating</h3>
-                <p id="avg-rating">1.2/5</p>
+                <h3>平均評価</h3>
+                <p id="avg-rating">4.4/5</p>
             </div>
             <div class="stat-card">
-                <h3>Most Common Age</h3>
-                <p id="common-age">25-34</p>
+                <h3>最も多い年齢層</h3>
+                <p id="common-age">25-34歳</p>
             </div>
-            <div class="stat-card negative-stat">
-                <h3>Server Complaints</h3>
-                <p id="server-complaints">100%</p>
+            <div class="stat-card">
+                <h3>ストーリー関心度</h3>
+                <p id="story-interest">85%</p>
             </div>
             <div class="stat-card warning-stat">
-                <h3>3D Requests</h3>
-                <p id="dimension-complaints">28%</p>
+                <h3>機能リクエスト</h3>
+                <p id="feature-requests">38%</p>
             </div>
-            <div class="stat-card">
-                <h3>Novel Interest</h3>
-                <p id="novel-interest">65%</p>
+            <div class="stat-card negative-stat">
+                <h3>著作権苦情</h3>
+                <p id="infringement-complaints">2件</p>
             </div>
         </div>
         
         <div class="novel-section">
-            <h2>The "Door Knocking" Novel Concept</h2>
-            <p>Based on community feedback, we're exploring a novel adaptation of the game concept. Here's what players said about the story potential:</p>
+            <h2>"ドアのノック" 小説コンセプト - 6月1日〜18日</h2>
+            <p>6月1日から18日のコミュニティフィードバックに基づき、ゲームコンセプトの小説化を検討しています。しかし、著作権侵害の疑いがあるとの報告により、現在プロジェクトは一時停止中です。</p>
             <ul>
-                <li>"The mysterious door-knocking concept has great narrative potential"</li>
-                <li>"Would love to read the backstory of the door-knockers"</li>
-                <li>"A novel could explore the psychological aspects of the game"</li>
-                <li>"The suspenseful atmosphere would translate well to literature"</li>
+                <li>"6月に入っても神秘的なドアのノック概念には素晴らしい物語の可能性があります"</li>
+                <li>"6月の暑さの中でノッカーたちの背景ストーリーを読みたい"</li>
+                <li>"6月の梅雨空のような雰囲気は心理的スリラーに非常に適しています"</li>
+                <li>"6月の湿気と静けさが小説のスリリングな雰囲気を強調します"</li>
             </ul>
             
-            <h3>Novel Concept Preferences</h3>
+            <h3>6月1日〜18日の小説コンセプトの好ましいジャンル</h3>
             <div class="novel-chart">
-                <div style="height: 80%;">
-                    <div class="novel-bar novel-bar-high" style="height: 80%;">
-                        <div class="bar-value">47</div>
-                    </div>
-                    <div class="bar-label">Mystery/Suspense</div>
-                </div>
-                <div style="height: 65%;">
-                    <div class="novel-bar" style="height: 65%;">
+                <div style="height: 88%;">
+                    <div class="novel-bar novel-bar-high" style="height: 88%;">
                         <div class="bar-value">32</div>
                     </div>
-                    <div class="bar-label">Psychological Thriller</div>
+                    <div class="bar-label">ミステリー/サスペンス</div>
                 </div>
-                <div style="height: 40%;">
-                    <div class="novel-bar novel-bar-low" style="height: 40%;">
-                        <div class="bar-value">18</div>
+                <div style="height: 72%;">
+                    <div class="novel-bar" style="height: 72%;">
+                        <div class="bar-value">24</div>
                     </div>
-                    <div class="bar-label">Horror Elements</div>
+                    <div class="bar-label">サイコロジカルスリラー</div>
                 </div>
-                <div style="height: 25%;">
-                    <div class="novel-bar novel-bar-low" style="height: 25%;">
-                        <div class="bar-value">12</div>
+                <div style="height: 48%;">
+                    <div class="novel-bar novel-bar-low" style="height: 48%;">
+                        <div class="bar-value">16</div>
                     </div>
-                    <div class="bar-label">Sci-Fi Adaptation</div>
+                    <div class="bar-label">ホラー要素</div>
+                </div>
+                <div style="height: 32%;">
+                    <div class="novel-bar novel-bar-low" style="height: 32%;">
+                        <div class="bar-value">10</div>
+                    </div>
+                    <div class="bar-label">SFアダプテーション</div>
                 </div>
             </div>
         </div>
         
-        <h2>Experience Level Distribution</h2>
+        <h2>6月1日〜18日の経験レベル分布</h2>
         <div class="chart-container">
-            <div style="height: 60%;">
-                <div class="bar" style="height: 60%;">
+            <div style="height: 68%;">
+                <div class="bar" style="height: 68%;">
                     <div class="bar-value">28</div>
                 </div>
-                <div class="bar-label">Intermediate</div>
+                <div class="bar-label">中級者</div>
             </div>
-            <div style="height: 45%;">
-                <div class="bar" style="height: 45%;">
-                    <div class="bar-value">22</div>
+            <div style="height: 52%;">
+                <div class="bar" style="height: 52%;">
+                    <div class="bar-value">19</div>
                 </div>
-                <div class="bar-label">Beginner</div>
+                <div class="bar-label">初心者</div>
             </div>
-            <div style="height: 25%;">
-                <div class="bar" style="height: 25%;">
-                    <div class="bar-value">22</div>
+            <div style="height: 32%;">
+                <div class="bar" style="height: 32%;">
+                    <div class="bar-value">5</div>
                 </div>
-                <div class="bar-label">Expert</div>
+                <div class="bar-label">上級者</div>
             </div>
         </div>
         
-        <h2>Dimension Preference Distribution</h2>
-        <div class="dimension-chart">
-            <div style="height: 70%;">
-                <div class="dimension-bar" style="height: 70%;">
-                    <div class="bar-value">52</div>
-                </div>
-                <div class="bar-label">Satisfied with 2D</div>
-            </div>
-            <div style="height: 40%;">
-                <div class="dimension-bar dimension-bar-3d" style="height: 40%;">
-                    <div class="bar-value">20</div>
-                </div>
-                <div class="bar-label">Prefer 3D</div>
-            </div>
+        <div class="story-section">
+            <h2>6月1日〜18日のストーリー要素のフィードバック</h2>
+            <p>6月1日から18日のプレイヤーは物語的側面について貴重な洞察を提供しました：</p>
+            <ul>
+                <li><strong>梅雨の雰囲気:</strong> "6月の湿気と静けさが不気味な雰囲気を引き立てます"</li>
+                <li><strong>キャラクター:</strong> "6月のゲーム体験でキャラクター開発への関心が高まりました"</li>
+                <li><strong>ワールドビルド:</strong> "6月の夜のドアのノックは特別な意味を持つようです"</li>
+                <li><strong>背景ストーリー:</strong> "6月の梅雨の日にドアのノックが聞こえたという体験談が多くありました"</li>
+            </ul>
         </div>
         
-        <h2>Server Stability Issues</h2>
+        <h2>6月1日〜18日の機能リクエスト分布</h2>
         <div class="chart-container">
-            <div style="height: 100%;">
-                <div class="bar negative-bar" style="height: 100%;">
-                    <div class="bar-value">72</div>
+            <div style="height: 78%;">
+                <div class="bar warning-bar" style="height: 78%;">
+                    <div class="bar-value">22</div>
                 </div>
-                <div class="bar-label">Total Failures</div>
+                <div class="bar-label">レベル追加</div>
+            </div>
+            <div style="height: 62%;">
+                <div class="bar warning-bar" style="height: 62%;">
+                    <div class="bar-value">18</div>
+                </div>
+                <div class="bar-label">キャラクターカスタマイズ</div>
+            </div>
+            <div style="height: 48%;">
+                <div class="bar warning-bar" style="height: 48%;">
+                    <div class="bar-value">12</div>
+                </div>
+                <div class="bar-label">マルチプレイヤーモード</div>
+            </div>
+            <div style="height: 34%;">
+                <div class="bar warning-bar" style="height: 34%;">
+                    <div class="bar-value">8</div>
+                </div>
+                <div class="bar-label">サウンドトラック</div>
             </div>
         </div>
         
-        <h2>Rating Distribution</h2>
+        <h2>6月1日〜18日の評価分布</h2>
         <div class="rating-breakdown">
             <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★</div>
-                <div>5 Stars</div>
-                <div>1 response</div>
+                <div style="font-size: 24px; color: #ffc107;">★★★★★</div>
+                <div>5つ星</div>
+                <div>22件の回答</div>
             </div>
             <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★</div>
-                <div>4 Stars</div>
-                <div>2 responses</div>
+                <div style="font-size: 24px; color: #ffc107;">★★★★☆</div>
+                <div>4つ星</div>
+                <div>18件の回答</div>
             </div>
             <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★</div>
-                <div>3 Stars</div>
-                <div>3 responses</div>
+                <div style="font-size: 24px; color: #ffc107;">★★★☆☆</div>
+                <div>3つ星</div>
+                <div>9件の回答</div>
             </div>
             <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★</div>
-                <div>2 Stars</div>
-                <div>5 responses</div>
+                <div style="font-size: 24px; color: #ffc107;">★★☆☆☆</div>
+                <div>2つ星</div>
+                <div>3件の回答</div>
             </div>
             <div class="rating-item">
-                <div style="font-size: 24px; color: #ffc107;">★</div>
-                <div>1 Star</div>
-                <div>61 responses</div>
+                <div style="font-size: 24px; color: #ffc107;">★☆☆☆☆</div>
+                <div>1つ星</div>
+                <div>0件の回答</div>
             </div>
         </div>
         
         <div class="dimension-section">
-            <h2>2D vs 3D Feedback</h2>
-            <p>Some players expressed preferences regarding the game's visual presentation:</p>
+            <h2>6月1日〜18日のゲームプレイ体験のフィードバック</h2>
+            <p>6月1日から18日のプレイヤーはさまざまなゲームプレイ要素について意見を述べました：</p>
             <ul>
-                <li><strong>Pro-2D feedback:</strong> "2D art style fits the game perfectly and runs smoothly"</li>
-                <li><strong>Pro-3D feedback:</strong> "Why is this still 2D? Modern games should be 3D!"</li>
-                <li><strong>Neutral feedback:</strong> "Visual style is fine, focus on gameplay over graphics"</li>
+                <li><strong>梅雨の没入感:</strong> "6月の湿った空気の中での謎が続くため、何度もプレイしたくなります"</li>
+                <li><strong>季節のチャレンジ性:</strong> "6月の静けさとゲームの緊張感のバランスが完璧"</li>
+                <li><strong>リプレイ性:</strong> "6月の夜中にプレイすると、異なる結果を感じることができます"</li>
+                <li><strong>6月のペース:</strong> "梅雨の時期にゲーム全体を通して緊張感がよく調整されています"</li>
             </ul>
         </div>
         
-        <h2>Novel Concept Feedback</h2>
+        <h2>6月1日〜18日の小説コンセプトのフィードバック</h2>
         <div class="novel-feedback">
-            <p><strong>Positive Novel Feedback:</strong> "The door-knocking concept has incredible storytelling potential. Please develop a novel version!"</p>
-            <p><strong>Story Suggestions:</strong> "Focus on the psychology of isolation and mystery rather than just the game mechanics"</p>
-            <p><strong>Narrative Concerns:</strong> "Make sure the novel explores the deeper meaning behind the door-knocking phenomenon"</p>
+            <p><strong>6月の肯定的な小説フィードバック:</strong> "6月の湿気と静けさの中でドアのノックコンセプトは特に魅力的です。是非小説版を開発してください！"</p>
+            <p><strong>6月のストーリー提案:</strong> "6月の蒸し暑さの中で孤独と神秘の心理学に焦点を当ててください"</p>
+            <p><strong>6月の物語上の懸念:</strong> "6月の夜のドアのノック現象の背後にある深い意味を探求してください"</p>
         </div>
         
-        <h2>Response Details</h2>
+        <h2>6月1日〜18日の回答詳細</h2>
         <table id="results-table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Age Group</th>
-                    <th>Experience</th>
-                    <th>Rating</th>
-                    <th>Feedback</th>
-                    <th>Novel Interest</th>
-                    <th>Admin Response</th>
+                    <th>名前</th>
+                    <th>メール</th>
+                    <th>年齢層</th>
+                    <th>経験レベル</th>
+                    <th>評価</th>
+                    <th>フィードバック</th>
+                    <th>小説への興味</th>
+                    <th>管理者の返信</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Alex Johnson</td>
-                    <td>alex@example.com</td>
-                    <td>25-34</td>
-                    <td>Intermediate</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">Game won't even start! Server is completely down since launch in 2026!</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 15, 2026):</strong> We apologize for the inconvenience. Our engineering team is working around the clock to resolve the server issues. We expect to have a fix within 24-48 hours. We're also considering a novel adaptation of the story concept based on feedback.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Maria Garcia</td>
-                    <td>maria@example.com</td>
-                    <td>18-24</td>
-                    <td>Beginner</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">This is ridiculous! I paid $60 for a game that doesn't work at all. Servers have been down for weeks!</td>
-                    <td>No</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 16, 2026):</strong> We understand your frustration. We've issued full refunds to all customers and are working on a complete server architecture overhaul. Stay tuned for our Q2 2026 relaunch. We're also developing a novel to complement the game.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>David Smith</td>
-                    <td>david@example.com</td>
-                    <td>35-44</td>
-                    <td>Expert</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">I've never seen such poor infrastructure planning. How did you release a game with 0% uptime?</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 17, 2026):</strong> You're absolutely right about our infrastructure failures. We've brought in new cloud architecture specialists and are implementing a multi-region failover system to prevent future outages. We're also exploring a novel version of the concept.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Sarah Williams</td>
-                    <td>sarah@example.com</td>
-                    <td>25-34</td>
-                    <td>Intermediate</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">I was so excited for this game but it's been non-functional since day one. What a waste of time!</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 18, 2026):</strong> We deeply regret the disappointment. We're offering early access to our beta program as compensation for those affected by the launch issues. We're also commissioning authors to write a novel based on the game's concept.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>James Brown</td>
-                    <td>james@example.com</td>
-                    <td>45+</td>
-                    <td>Beginner</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">I don't understand technology, but even I can tell something is very wrong. Game doesn't work at all!</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 19, 2026):</strong> Thank you for your patience during this difficult period. We're simplifying our error messages and support channels to better assist all players regardless of technical expertise. We're also developing a book version of the story for those who prefer reading.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Emma Davis</td>
-                    <td>emma@example.com</td>
-                    <td>18-24</td>
-                    <td>Intermediate</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">Why release an unfinished product? This feels like a scam. Servers crash before I can even connect!</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 20, 2026):</strong> We acknowledge that our pre-launch testing was insufficient. We've implemented additional quality assurance processes and will conduct extensive stress testing before any future releases. We're also working with publishers on a novel adaptation.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Michael Wilson</td>
-                    <td>michael@example.com</td>
-                    <td>25-34</td>
-                    <td>Expert</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">The server architecture appears to be built on deprecated technologies. No wonder it can't handle basic load!</td>
-                    <td>No</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 21, 2026):</strong> Your technical assessment is accurate. We've engaged a new development team to rebuild the server infrastructure using modern cloud-native technologies including Kubernetes and microservices. We're also considering a literary adaptation.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Olivia Martinez</td>
-                    <td>olivia@example.com</td>
-                    <td>35-44</td>
-                    <td>Beginner</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">I tried playing again today but still can't connect. When will this be fixed?</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 22, 2026):</strong> We're currently in the final testing phase of our new server infrastructure. A limited alpha test begins Jan 25th with full rollout scheduled for Feb 1st, 2026. We're also releasing a companion novel to tide fans over.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Daniel Taylor</td>
-                    <td>daniel@example.com</td>
-                    <td>25-34</td>
-                    <td>Intermediate</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">I've been checking daily since launch. Do you even have a working server anywhere?</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 23, 2026):</strong> Yes, we have a working test environment that demonstrates the fixes for the launch issues. We'll share a preview video next week showing the improved stability and performance. We're also writing a novel to expand the universe.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Sophia Anderson</td>
-                    <td>sophia@example.com</td>
-                    <td>18-24</td>
-                    <td>Expert</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">I'm a game developer myself. This level of failure suggests no load testing was performed. Amateur hour!</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 24, 2026):</strong> We appreciate your professional perspective. You're correct that our testing protocols were inadequate. We've hired additional QA engineers and implemented automated stress testing into our deployment pipeline. We're also creating a literary version.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Steven Scott</td>
-                    <td>steven@example.com</td>
-                    <td>25-34</td>
-                    <td>Expert</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">Why is this still 2D in 2026? All modern games should be 3D. This looks outdated. Also, servers don't work at all.</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 25, 2026):</strong> We're addressing the server issues first as priority #1. Once stability is achieved, we'll begin work on the 3D engine upgrade as requested. Our roadmap includes both fixes and enhancements. We're also developing a novel based on the story.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Kevin Adams</td>
-                    <td>kevin@example.com</td>
-                    <td>18-24</td>
-                    <td>Expert</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">This is 2026, not the 90s! Why is this still 2D when all serious games are 3D? Unacceptable! Plus servers are dead.</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 26, 2026):</strong> We understand the importance of modern visuals. We're assembling a 3D graphics team to work alongside our server recovery efforts. Both improvements are now in our Q2 2026 roadmap. We're also commissioning a novel.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lisa Nelson</td>
-                    <td>lisa@example.com</td>
-                    <td>25-34</td>
-                    <td>Intermediate</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">The 2D graphics look so old-fashioned. Why didn't they make it 3D like other modern games? Also, can't even see the graphics because servers are down!</td>
-                    <td>Yes</td>
-                    <td>
-                        <div class="admin-response">
-                            <strong>Admin (Jan 27, 2026):</strong> We're working on both issues simultaneously. Our plan includes server infrastructure replacement followed by the implementation of a modern 3D rendering engine. Thank you for your patience during these improvements. We're also creating a novel.
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Robert Lee</td>
-                    <td>robert@example.com</td>
-                    <td>35-44</td>
-                    <td>Intermediate</td>
+                    <td>佐藤花子</td>
+                    <td>hanako@example.com</td>
+                    <td>18-24歳</td>
+                    <td>初心者</td>
                     <td>4/5</td>
-                    <td class="feedback-positive">The concept is brilliant! The idea of mysterious door knockings has so much potential for a novel. Even though the game doesn't work, I'd love to read the story.</td>
-                    <td>Yes</td>
+                    <td class="feedback-positive">6月の梅雨の日にプレイするのが特に良かったです！このコンセプトに基づいた小説もぜひ読んでみたいです。ドアのノックの謎がとても気になります。</td>
+                    <td>はい</td>
                     <td>
                         <div class="admin-response">
-                            <strong>Admin (Jan 28, 2026):</strong> We're thrilled you see the potential in the concept! We're actively working on a novel adaptation of the "Door Knocking" universe. Thank you for your positive feedback despite the technical issues.
+                            <strong>管理者 (2026年6月5日):</strong> 6月の梅雨の日にプレイしていただきありがとうございます！小説化の準備を進めていますが、著作権侵害の疑いがあるとの指摘を受け、現在調査中です。安全な形での展開を検討しています。
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td>Jennifer King</td>
-                    <td>jennifer@example.com</td>
-                    <td>25-34</td>
-                    <td>Expert</td>
-                    <td>2/5</td>
-                    <td class="feedback-warning">I love the mystery theme but hate that the game is broken. Have you considered making this into a book series instead? The concept is perfect for literature.</td>
-                    <td>Yes</td>
+                    <td>鈴木一郎</td>
+                    <td>ichiro@example.com</td>
+                    <td>35-44歳</td>
+                    <td>上級者</td>
+                    <td>4/5</td>
+                    <td class="feedback-positive">6月の湿った雰囲気とゲームの融合が素晴らしいです。他のメディアにも展開できる可能性があり、特に文学作品に適していると思います。</td>
+                    <td>はい</td>
                     <td>
                         <div class="admin-response">
-                            <strong>Admin (Jan 29, 2026):</strong> That's an excellent suggestion! We're actually in discussions with several publishers about a novel adaptation. We believe the atmospheric mystery translates well to the written word while we fix the game.
+                            <strong>管理者 (2026年6月8日):</strong> 跨媒体の可能性についての洞察ありがとうございます！しかし、著作権侵害の苦情を受け、現在小説化プロジェクトを一時停止しています。法的リスクを排除した上で再開を検討しています。
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>高橋美咲</td>
+                    <td>misaki@example.com</td>
+                    <td>25-34歳</td>
+                    <td>中級者</td>
+                    <td>5/5</td>
+                    <td class="feedback-positive">6月の湿気の中で感じた雰囲気は素晴らしいです！この物語には小説化する価値があります。とても素晴らしいです！</td>
+                    <td>はい</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>管理者 (2026年6月12日):</strong> 6月の湿気の中で物語の深さを感じていただきありがとうございます！しかし、著作権侵害の疑いがあるとの指摘を受け、小説化プロジェクトの進捗が一時的に停止しています。法的検討を終えた後に再開を検討しています。
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>伊藤健司</td>
+                    <td>kenji@example.com</td>
+                    <td>45歳以上</td>
+                    <td>初心者</td>
+                    <td>4/5</td>
+                    <td class="feedback-positive">6月の静けさと神秘的な要素が本当に引き込みます。ゲームより本の方が好きな人として、この物語の文学バージョンを楽しみにしています。</td>
+                    <td>はい</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>管理者 (2026年6月15日):</strong> 6月の静けさの中で私たちの作品を感じていただき嬉しく思います！しかし、著作権侵害の苦情により、小説化プロジェクトは現在中断中です。現実の人物との関連性を精査しています。
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>中村彩香</td>
+                    <td>ayaka@example.com</td>
+                    <td>18-24歳</td>
+                    <td>中級者</td>
+                    <td>5/5</td>
+                    <td class="feedback-positive">6月の蒸し暑い夜にプレイするのが最高でした！このストーリーの本を絶対に買います。ドアのノックの謎がとても魅力的です！</td>
+                    <td>はい</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>管理者 (2026年6月18日):</strong> 6月の蒸し暑い夜にプレイしていただいたとは素晴らしい！しかし、著作権侵害の疑いにより、小説化プロジェクトの進捗が影響を受けています。法的確認が完了するまでお待ちください。
                         </div>
                     </td>
                 </tr>
@@ -644,59 +573,56 @@
         </table>
         
         <div class="response-section">
-            <h2>Respond to Player Feedback</h2>
+            <h2>プレイヤーフィードバックへの返信</h2>
             <form class="response-form" id="responseForm">
-                <label for="playerName"><strong>Player Name:</strong></label>
-                <input type="text" id="playerName" placeholder="Enter player name">
+                <label for="playerName"><strong>プレイヤー名:</strong></label>
+                <input type="text" id="playerName" placeholder="プレイヤー名を入力してください">
                 
-                <label for="responseText"><strong>Your Response:</strong></label>
-                <textarea id="responseText" rows="4" placeholder="Enter your response to the player..."></textarea>
+                <label for="responseText"><strong>返信内容:</strong></label>
+                <textarea id="responseText" rows="4" placeholder="プレイヤーへの返信を入力してください..."></textarea>
                 
-                <label for="responseType"><strong>Response Type:</strong></label>
+                <label for="responseType"><strong>返信タイプ:</strong></label>
                 <select id="responseType">
-                    <option value="apology">Apology & Solution</option>
-                    <option value="update">Status Update</option>
-                    <option value="solution">Solution Offered</option>
-                    <option value="acknowledgment">Acknowledgment</option>
-                    <option value="novel">Novel Project Update</option>
+                    <option value="appreciation">感謝の表明</option>
+                    <option value="update">アップデート情報</option>
+                    <option value="acknowledgment">認識表明</option>
+                    <option value="novel">小説プロジェクトの更新</option>
+                    <option value="content">コンテンツ追加</option>
                 </select>
                 
-                <button type="submit">Submit Response</button>
+                <button type="submit">返信を送信</button>
             </form>
         </div>
         
         <div class="key-insights">
-            <h2>Key Insights</h2>
+            <h2>6月1日〜18日の主なインサイト</h2>
             <ul>
-                <li><strong>Server Issues:</strong> 100% of feedback mentions server crashes and connection problems</li>
-                <li><strong>Novel Interest:</strong> 65% of players expressed interest in a "Door Knocking" novel</li>
-                <li><strong>Dimension Feedback:</strong> 28% of players requested 3D instead of 2D graphics</li>
-                <li><strong>Demographics:</strong> The majority of players are between 25-34 years old</li>
-                <li><strong>Experience Level:</strong> Players of all experience levels are affected by the server issues</li>
-                <li><strong>Game Appeal:</strong> The game concept has potential, but technical issues have prevented any meaningful gameplay</li>
-                <li><strong>Areas for Improvement:</strong> Complete server infrastructure overhaul required</li>
-                <li><strong>Performance Impact:</strong> Server issues have resulted in extremely low satisfaction ratings</li>
+                <li><strong>サーバー性能:</strong> 99.8%のアップタイムで応答時間が良好</li>
+                <li><strong>小説への関心:</strong> 85%のプレイヤーが「ドアのノック」小説への興味を示した</li>
+                <li><strong>著作権問題:</strong> 2件の著作権侵害苦情が提出され、プロジェクトに影響</li>
+                <li><strong>ストーリーの関与度:</strong> 85%のプレイヤーがゲームの叙事構造に興味を持っている</li>
+                <li><strong>年齢層:</strong> 多くのプレイヤーは25-34歳の間である</li>
+                <li><strong>経験レベル:</strong> 中級者が最も多く、初心者も多数参加</li>
+                <li><strong>6月のゲームの魅力:</strong> 梅雨の季節感と神秘的な雰囲気が最も強力な要素</li>
+                <li><strong>機能リクエスト:</strong> 最も人気のあるリクエストは、より多くのレベルとキャラクターカスタマイズ</li>
+                <li><strong>パフォーマンス:</strong> 高い満足度評価は成功した6月の継続的な人気を示している</li>
             </ul>
         </div>
         
         <div class="server-status">
-            <h3>Resolution Plan for 2026</h3>
+            <h3>6月1日〜18日の開発計画</h3>
             <ul>
-                <li>Phase 1: Complete server infrastructure replacement (Jan-Feb 2026)</li>
-                <li>Phase 2: Implement redundant server systems (Mar 2026)</li>
-                <li>Phase 3: Conduct thorough stability testing (Apr 2026)</li>
-                <li>Phase 4: Add 3D rendering capabilities (Q2 2026)</li>
-                <li>Phase 5: Beta testing with select community members (May 2026)</li>
-                <li>Phase 6: Full relaunch with improved features (Jun 2026)</li>
+                <li>6月1日〜5日: サーバー安定性向上作業</li>
+                <li>6月6日〜10日: 新しい音響効果の追加 (梅雨の音)</li>
+                <li>6月11日〜15日: キャラクターカスタマイズシステム実装</li>
+                <li>6月16日〜18日: <span style="color:#dc3545;">小説プロジェクトの一時停止 - 著作権調査のため</span></li>
             </ul>
             
-            <h3>Novel Development Plan</h3>
+            <h3>6月1日〜18日の小説開発タイムライン</h3>
             <ul>
-                <li>Jan 2026: Author selection and contract negotiations</li>
-                <li>Feb 2026: Story outline and character development</li>
-                <li>Mar-Apr 2026: First draft completion</li>
-                <li>May 2026: Editing and review process</li>
-                <li>Jun 2026: Publication and marketing launch</li>
+                <li><span style="color:#dc3545;">2026年6月1日〜10日: 原稿執筆作業進行中</span></li>
+                <li><span style="color:#dc3545;">2026年6月11日: 著作権侵害の疑いによりプロジェクト一時停止</span></li>
+                <li><span style="color:#dc3545;">2026年6月12日〜18日: 法的検討と修正作業</span></li>
             </ul>
         </div>
     </div>
@@ -704,19 +630,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Calculate statistics based on sample data
-            const totalResponses = 72;
-            const avgRating = 1.2;
-            const commonAge = "25-34";
-            const serverComplaints = 100;
-            const dimensionComplaints = 28;
-            const novelInterest = 65;
+            const totalResponses = 52;
+            const avgRating = 4.4;
+            const commonAge = "25-34歳";
+            const storyInterest = 85;
+            const featureRequests = 38;
+            const infringementComplaints = 2;
             
             document.getElementById('total-responses').textContent = totalResponses;
             document.getElementById('avg-rating').textContent = avgRating + "/5";
             document.getElementById('common-age').textContent = commonAge;
-            document.getElementById('server-complaints').textContent = serverComplaints + "%";
-            document.getElementById('dimension-complaints').textContent = dimensionComplaints + "%";
-            document.getElementById('novel-interest').textContent = novelInterest + "%";
+            document.getElementById('story-interest').textContent = storyInterest + "%";
+            document.getElementById('feature-requests').textContent = featureRequests + "%";
+            document.getElementById('infringement-complaints').textContent = infringementComplaints + "件";
             
             // Add functionality to respond to feedback
             document.getElementById('responseForm').addEventListener('submit', function(e) {
@@ -727,7 +653,7 @@
                 const responseType = document.getElementById('responseType').value;
                 
                 if (!playerName || !responseText) {
-                    alert('Please fill in both the player name and response text.');
+                    alert('プレイヤー名と返信テキストの両方を入力してください。');
                     return;
                 }
                 
@@ -736,34 +662,34 @@
                 responseDiv.className = 'admin-response';
                 
                 const now = new Date();
-                const dateStr = now.toLocaleDateString('en-US', { 
+                const dateStr = now.toLocaleDateString('ja-JP', { 
                     month: 'short', 
                     day: 'numeric', 
                     year: 'numeric',
-                    timeZone: 'UTC'
+                    timeZone: 'Asia/Tokyo'
                 });
                 
                 let responseTypeLabel = '';
                 switch(responseType) {
-                    case 'apology':
-                        responseTypeLabel = 'Apology & Solution';
+                    case 'appreciation':
+                        responseTypeLabel = '感謝の表明';
                         break;
                     case 'update':
-                        responseTypeLabel = 'Status Update';
-                        break;
-                    case 'solution':
-                        responseTypeLabel = 'Solution Offered';
+                        responseTypeLabel = 'アップデート情報';
                         break;
                     case 'acknowledgment':
-                        responseTypeLabel = 'Acknowledgment';
+                        responseTypeLabel = '認識表明';
                         break;
                     case 'novel':
-                        responseTypeLabel = 'Novel Project Update';
+                        responseTypeLabel = '小説プロジェクトの更新';
+                        break;
+                    case 'content':
+                        responseTypeLabel = 'コンテンツ追加';
                         break;
                 }
                 
                 responseDiv.innerHTML = `
-                    <strong>Admin (${dateStr}, 2026):</strong> 
+                    <strong>管理者 (${dateStr}, 2026):</strong> 
                     <em>[${responseTypeLabel}]</em> ${responseText}
                 `;
                 
@@ -782,9 +708,9 @@
                         lastRow.appendChild(newCell);
                     }
                     
-                    alert(`Response sent to ${playerName} successfully!`);
+                    alert(`${playerName}さんに返信を送信しました！`);
                 } else {
-                    alert('No player found to respond to.');
+                    alert('返信するプレイヤーが見つかりません。');
                 }
                 
                 // Reset form
@@ -798,7 +724,7 @@
                 header.style.cursor = 'pointer';
                 header.addEventListener('click', function() {
                     // Simple sorting functionality would go here
-                    alert(`Sorting by ${this.textContent}`);
+                    alert(`${this.textContent}で並べ替え`);
                 });
             });
         });
