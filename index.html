@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Door Knocking Game Survey Results</title>
+    <title>2026 Door Knocking Game Survey Results</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -173,25 +173,96 @@
         .dimension-bar-neutral {
             background-color: #6c757d;
         }
+        .response-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .response-form {
+            margin-top: 15px;
+        }
+        .response-form input,
+        .response-form textarea,
+        .response-form button {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        .response-form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .response-form button:hover {
+            background-color: #0056b3;
+        }
+        .admin-response {
+            background-color: #e2e3e5;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .year-highlight {
+            color: #17a2b8;
+            font-weight: bold;
+        }
+        .novel-section {
+            background-color: #f3e5f5;
+            border: 1px solid #e1bee7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .novel-chart {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            height: 200px;
+            align-items: flex-end;
+            border-bottom: 2px solid #333;
+        }
+        .novel-bar {
+            width: 80px;
+            background-color: #9c27b0;
+            margin: 0 10px;
+            position: relative;
+            border-radius: 4px 4px 0 0;
+        }
+        .novel-bar-high {
+            background-color: #e91e63;
+        }
+        .novel-bar-low {
+            background-color: #ab47bc;
+        }
+        .novel-feedback {
+            background-color: #f1f8e9;
+            border-left: 4px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Door Knocking Game Survey Results</h1>
+        <h1>2026 Door Knocking Game Survey Results</h1>
         
         <div class="server-status">
-            <h2>Server Status: <span class="server-down">FREQUENT OUTAGES DETECTED</span></h2>
-            <p>Uptime: 78% | Average downtime per day: 4.2 hours</p>
+            <h2>Server Status: <span class="server-down">CRITICAL - 100% FAILURE RATE</span></h2>
+            <p>Uptime: 0% | Total downtime: 24/7 since launch in 2026</p>
         </div>
         
         <div class="stats-container">
             <div class="stat-card">
                 <h3>Total Responses</h3>
-                <p id="total-responses">58</p>
+                <p id="total-responses">72</p>
             </div>
             <div class="stat-card">
                 <h3>Avg Rating</h3>
-                <p id="avg-rating">3.3/5</p>
+                <p id="avg-rating">1.2/5</p>
             </div>
             <div class="stat-card">
                 <h3>Most Common Age</h3>
@@ -199,11 +270,54 @@
             </div>
             <div class="stat-card negative-stat">
                 <h3>Server Complaints</h3>
-                <p id="server-complaints">41%</p>
+                <p id="server-complaints">100%</p>
             </div>
             <div class="stat-card warning-stat">
                 <h3>3D Requests</h3>
                 <p id="dimension-complaints">28%</p>
+            </div>
+            <div class="stat-card">
+                <h3>Novel Interest</h3>
+                <p id="novel-interest">65%</p>
+            </div>
+        </div>
+        
+        <div class="novel-section">
+            <h2>The "Door Knocking" Novel Concept</h2>
+            <p>Based on community feedback, we're exploring a novel adaptation of the game concept. Here's what players said about the story potential:</p>
+            <ul>
+                <li>"The mysterious door-knocking concept has great narrative potential"</li>
+                <li>"Would love to read the backstory of the door-knockers"</li>
+                <li>"A novel could explore the psychological aspects of the game"</li>
+                <li>"The suspenseful atmosphere would translate well to literature"</li>
+            </ul>
+            
+            <h3>Novel Concept Preferences</h3>
+            <div class="novel-chart">
+                <div style="height: 80%;">
+                    <div class="novel-bar novel-bar-high" style="height: 80%;">
+                        <div class="bar-value">47</div>
+                    </div>
+                    <div class="bar-label">Mystery/Suspense</div>
+                </div>
+                <div style="height: 65%;">
+                    <div class="novel-bar" style="height: 65%;">
+                        <div class="bar-value">32</div>
+                    </div>
+                    <div class="bar-label">Psychological Thriller</div>
+                </div>
+                <div style="height: 40%;">
+                    <div class="novel-bar novel-bar-low" style="height: 40%;">
+                        <div class="bar-value">18</div>
+                    </div>
+                    <div class="bar-label">Horror Elements</div>
+                </div>
+                <div style="height: 25%;">
+                    <div class="novel-bar novel-bar-low" style="height: 25%;">
+                        <div class="bar-value">12</div>
+                    </div>
+                    <div class="bar-label">Sci-Fi Adaptation</div>
+                </div>
             </div>
         </div>
         
@@ -211,19 +325,19 @@
         <div class="chart-container">
             <div style="height: 60%;">
                 <div class="bar" style="height: 60%;">
-                    <div class="bar-value">24</div>
+                    <div class="bar-value">28</div>
                 </div>
                 <div class="bar-label">Intermediate</div>
             </div>
             <div style="height: 45%;">
                 <div class="bar" style="height: 45%;">
-                    <div class="bar-value">18</div>
+                    <div class="bar-value">22</div>
                 </div>
                 <div class="bar-label">Beginner</div>
             </div>
             <div style="height: 25%;">
                 <div class="bar" style="height: 25%;">
-                    <div class="bar-value">16</div>
+                    <div class="bar-value">22</div>
                 </div>
                 <div class="bar-label">Expert</div>
             </div>
@@ -233,13 +347,13 @@
         <div class="dimension-chart">
             <div style="height: 70%;">
                 <div class="dimension-bar" style="height: 70%;">
-                    <div class="bar-value">42</div>
+                    <div class="bar-value">52</div>
                 </div>
                 <div class="bar-label">Satisfied with 2D</div>
             </div>
             <div style="height: 40%;">
                 <div class="dimension-bar dimension-bar-3d" style="height: 40%;">
-                    <div class="bar-value">16</div>
+                    <div class="bar-value">20</div>
                 </div>
                 <div class="bar-label">Prefer 3D</div>
             </div>
@@ -247,29 +361,11 @@
         
         <h2>Server Stability Issues</h2>
         <div class="chart-container">
-            <div style="height: 80%;">
-                <div class="bar negative-bar" style="height: 80%;">
-                    <div class="bar-value">23</div>
+            <div style="height: 100%;">
+                <div class="bar negative-bar" style="height: 100%;">
+                    <div class="bar-value">72</div>
                 </div>
-                <div class="bar-label">Frequent Crashes</div>
-            </div>
-            <div style="height: 60%;">
-                <div class="bar warning-bar" style="height: 60%;">
-                    <div class="bar-value">18</div>
-                </div>
-                <div class="bar-label">Connection Loss</div>
-            </div>
-            <div style="height: 40%;">
-                <div class="bar warning-bar" style="height: 40%;">
-                    <div class="bar-value">12</div>
-                </div>
-                <div class="bar-label">Slow Response</div>
-            </div>
-            <div style="height: 20%;">
-                <div class="bar" style="height: 20%;">
-                    <div class="bar-value">5</div>
-                </div>
-                <div class="bar-label">Stable</div>
+                <div class="bar-label">Total Failures</div>
             </div>
         </div>
         
@@ -278,27 +374,27 @@
             <div class="rating-item">
                 <div style="font-size: 24px; color: #ffc107;">★</div>
                 <div>5 Stars</div>
-                <div>6 responses</div>
+                <div>1 response</div>
             </div>
             <div class="rating-item">
                 <div style="font-size: 24px; color: #ffc107;">★</div>
                 <div>4 Stars</div>
-                <div>9 responses</div>
+                <div>2 responses</div>
             </div>
             <div class="rating-item">
                 <div style="font-size: 24px; color: #ffc107;">★</div>
                 <div>3 Stars</div>
-                <div>14 responses</div>
+                <div>3 responses</div>
             </div>
             <div class="rating-item">
                 <div style="font-size: 24px; color: #ffc107;">★</div>
                 <div>2 Stars</div>
-                <div>12 responses</div>
+                <div>5 responses</div>
             </div>
             <div class="rating-item">
                 <div style="font-size: 24px; color: #ffc107;">★</div>
                 <div>1 Star</div>
-                <div>17 responses</div>
+                <div>61 responses</div>
             </div>
         </div>
         
@@ -312,6 +408,13 @@
             </ul>
         </div>
         
+        <h2>Novel Concept Feedback</h2>
+        <div class="novel-feedback">
+            <p><strong>Positive Novel Feedback:</strong> "The door-knocking concept has incredible storytelling potential. Please develop a novel version!"</p>
+            <p><strong>Story Suggestions:</strong> "Focus on the psychology of isolation and mystery rather than just the game mechanics"</p>
+            <p><strong>Narrative Concerns:</strong> "Make sure the novel explores the deeper meaning behind the door-knocking phenomenon"</p>
+        </div>
+        
         <h2>Response Details</h2>
         <table id="results-table">
             <thead>
@@ -322,6 +425,8 @@
                     <th>Experience</th>
                     <th>Rating</th>
                     <th>Feedback</th>
+                    <th>Novel Interest</th>
+                    <th>Admin Response</th>
                 </tr>
             </thead>
             <tbody>
@@ -330,200 +435,154 @@
                     <td>alex@example.com</td>
                     <td>25-34</td>
                     <td>Intermediate</td>
-                    <td>4/5</td>
-                    <td>Great concept! The gameplay mechanics are engaging and the graphics are well done.</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">Game won't even start! Server is completely down since launch in 2026!</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 15, 2026):</strong> We apologize for the inconvenience. Our engineering team is working around the clock to resolve the server issues. We expect to have a fix within 24-48 hours. We're also considering a novel adaptation of the story concept based on feedback.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Maria Garcia</td>
                     <td>maria@example.com</td>
                     <td>18-24</td>
                     <td>Beginner</td>
-                    <td>5/5</td>
-                    <td>Fun and easy to learn. Perfect for casual gamers like me!</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">This is ridiculous! I paid $60 for a game that doesn't work at all. Servers have been down for weeks!</td>
+                    <td>No</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 16, 2026):</strong> We understand your frustration. We've issued full refunds to all customers and are working on a complete server architecture overhaul. Stay tuned for our Q2 2026 relaunch. We're also developing a novel to complement the game.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>David Smith</td>
                     <td>david@example.com</td>
                     <td>35-44</td>
                     <td>Expert</td>
-                    <td>4/5</td>
-                    <td>Creative idea with good replay value. Could use more challenging levels.</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">I've never seen such poor infrastructure planning. How did you release a game with 0% uptime?</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 17, 2026):</strong> You're absolutely right about our infrastructure failures. We've brought in new cloud architecture specialists and are implementing a multi-region failover system to prevent future outages. We're also exploring a novel version of the concept.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Sarah Williams</td>
                     <td>sarah@example.com</td>
                     <td>25-34</td>
                     <td>Intermediate</td>
-                    <td>5/5</td>
-                    <td>Love the social aspect of knocking on doors. Very immersive experience!</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">I was so excited for this game but it's been non-functional since day one. What a waste of time!</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 18, 2026):</strong> We deeply regret the disappointment. We're offering early access to our beta program as compensation for those affected by the launch issues. We're also commissioning authors to write a novel based on the game's concept.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>James Brown</td>
                     <td>james@example.com</td>
                     <td>45+</td>
                     <td>Beginner</td>
-                    <td>3/5</td>
-                    <td>Interesting concept but controls could be simpler for older players.</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">I don't understand technology, but even I can tell something is very wrong. Game doesn't work at all!</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 19, 2026):</strong> Thank you for your patience during this difficult period. We're simplifying our error messages and support channels to better assist all players regardless of technical expertise. We're also developing a book version of the story for those who prefer reading.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Emma Davis</td>
                     <td>emma@example.com</td>
                     <td>18-24</td>
                     <td>Intermediate</td>
-                    <td>4/5</td>
-                    <td>Good game with potential. Hope to see more content updates in the future.</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">Why release an unfinished product? This feels like a scam. Servers crash before I can even connect!</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 20, 2026):</strong> We acknowledge that our pre-launch testing was insufficient. We've implemented additional quality assurance processes and will conduct extensive stress testing before any future releases. We're also working with publishers on a novel adaptation.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Michael Wilson</td>
                     <td>michael@example.com</td>
                     <td>25-34</td>
                     <td>Expert</td>
-                    <td>5/5</td>
-                    <td>Excellent execution of the door-knocking concept. Well balanced difficulty.</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">The server architecture appears to be built on deprecated technologies. No wonder it can't handle basic load!</td>
+                    <td>No</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 21, 2026):</strong> Your technical assessment is accurate. We've engaged a new development team to rebuild the server infrastructure using modern cloud-native technologies including Kubernetes and microservices. We're also considering a literary adaptation.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Olivia Martinez</td>
                     <td>olivia@example.com</td>
                     <td>35-44</td>
                     <td>Beginner</td>
-                    <td>4/5</td>
-                    <td>Enjoyable game that doesn't take itself too seriously. Good for family play.</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">I tried playing again today but still can't connect. When will this be fixed?</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 22, 2026):</strong> We're currently in the final testing phase of our new server infrastructure. A limited alpha test begins Jan 25th with full rollout scheduled for Feb 1st, 2026. We're also releasing a companion novel to tide fans over.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Daniel Taylor</td>
                     <td>daniel@example.com</td>
                     <td>25-34</td>
                     <td>Intermediate</td>
-                    <td>3/5</td>
-                    <td>Had fun but felt repetitive after a while. Needs more variety.</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">I've been checking daily since launch. Do you even have a working server anywhere?</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 23, 2026):</strong> Yes, we have a working test environment that demonstrates the fixes for the launch issues. We'll share a preview video next week showing the improved stability and performance. We're also writing a novel to expand the universe.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Sophia Anderson</td>
                     <td>sophia@example.com</td>
                     <td>18-24</td>
                     <td>Expert</td>
-                    <td>5/5</td>
-                    <td>Innovative gameplay that keeps me coming back. Highly recommend!</td>
-                </tr>
-                <tr>
-                    <td>Robert Clark</td>
-                    <td>robert@example.com</td>
-                    <td>35-44</td>
-                    <td>Expert</td>
-                    <td>2/5</td>
-                    <td class="feedback-negative">The game feels rushed and incomplete. Many bugs and performance issues.</td>
-                </tr>
-                <tr>
-                    <td>Jennifer Lee</td>
-                    <td>jennifer@example.com</td>
-                    <td>25-34</td>
-                    <td>Intermediate</td>
-                    <td>2/5</td>
-                    <td class="feedback-negative">Expected more depth from the premise. Gameplay becomes monotonous quickly.</td>
-                </tr>
-                <tr>
-                    <td>William Rodriguez</td>
-                    <td>william@example.com</td>
-                    <td>45+</td>
-                    <td>Beginner</td>
                     <td>1/5</td>
-                    <td class="feedback-negative">Terrible user interface and confusing instructions. Frustrating to navigate.</td>
-                </tr>
-                <tr>
-                    <td>Thomas Moore</td>
-                    <td>thomas@example.com</td>
-                    <td>25-34</td>
-                    <td>Expert</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">Poor optimization caused constant crashes on my system. Waste of money.</td>
-                </tr>
-                <tr>
-                    <td>Patricia White</td>
-                    <td>patricia@example.com</td>
-                    <td>35-44</td>
-                    <td>Intermediate</td>
-                    <td>3/5</td>
-                    <td>Meh. Had potential but execution was lacking. Needs significant improvements.</td>
-                </tr>
-                <tr>
-                    <td>Christopher Martin</td>
-                    <td>chris@example.com</td>
-                    <td>25-34</td>
-                    <td>Expert</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">Server crashes constantly! Can barely play for 10 minutes without disconnection.</td>
-                </tr>
-                <tr>
-                    <td>Jennifer Thompson</td>
-                    <td>jenny@example.com</td>
-                    <td>35-44</td>
-                    <td>Intermediate</td>
-                    <td>2/5</td>
-                    <td class="feedback-negative">Game is decent but servers are down half the time. Very frustrating experience.</td>
-                </tr>
-                <tr>
-                    <td>Matthew Jackson</td>
-                    <td>matthew@example.com</td>
-                    <td>25-34</td>
-                    <td>Expert</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">Servers crash every few minutes. Impossible to enjoy the game with such instability.</td>
-                </tr>
-                <tr>
-                    <td>Ashley Harris</td>
-                    <td>ashley@example.com</td>
-                    <td>18-24</td>
-                    <td>Beginner</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">Wanted to like this game but servers are completely unreliable. Disconnected 5 times today.</td>
-                </tr>
-                <tr>
-                    <td>Joshua Walker</td>
-                    <td>joshua@example.com</td>
-                    <td>35-44</td>
-                    <td>Intermediate</td>
-                    <td>2/5</td>
-                    <td class="feedback-negative">Gameplay is okay but server stability is terrible. Please fix the frequent crashes!</td>
-                </tr>
-                <tr>
-                    <td>Stephanie Allen</td>
-                    <td>stephanie@example.com</td>
-                    <td>25-34</td>
-                    <td>Expert</td>
-                    <td>3/5</td>
-                    <td>Good concept but server issues make it unplayable most of the time. Needs immediate attention.</td>
-                </tr>
-                <tr>
-                    <td>Brian Young</td>
-                    <td>brian@example.com</td>
-                    <td>45+</td>
-                    <td>Intermediate</td>
-                    <td>2/5</td>
-                    <td class="feedback-negative">Server crashes are ruining the experience. Spend more time fixing infrastructure than playing.</td>
-                </tr>
-                <tr>
-                    <td>Nicole King</td>
-                    <td>nicole@example.com</td>
-                    <td>25-34</td>
-                    <td>Expert</td>
-                    <td>1/5</td>
-                    <td class="feedback-negative">Constant disconnections and server errors. Game is unplayable in its current state.</td>
+                    <td class="feedback-negative">I'm a game developer myself. This level of failure suggests no load testing was performed. Amateur hour!</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 24, 2026):</strong> We appreciate your professional perspective. You're correct that our testing protocols were inadequate. We've hired additional QA engineers and implemented automated stress testing into our deployment pipeline. We're also creating a literary version.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Steven Scott</td>
                     <td>steven@example.com</td>
                     <td>25-34</td>
                     <td>Expert</td>
-                    <td>2/5</td>
-                    <td class="feedback-negative">Why is this still 2D in 2023? All modern games should be 3D. This looks outdated.</td>
-                </tr>
-                <tr>
-                    <td>Rebecca Green</td>
-                    <td>rebecca@example.com</td>
-                    <td>35-44</td>
-                    <td>Intermediate</td>
-                    <td>3/5</td>
-                    <td class="feedback-warning">Gameplay is fine but why not 3D? Everything else is 3D now. Feels like a step backward.</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">Why is this still 2D in 2026? All modern games should be 3D. This looks outdated. Also, servers don't work at all.</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 25, 2026):</strong> We're addressing the server issues first as priority #1. Once stability is achieved, we'll begin work on the 3D engine upgrade as requested. Our roadmap includes both fixes and enhancements. We're also developing a novel based on the story.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Kevin Adams</td>
@@ -531,49 +590,113 @@
                     <td>18-24</td>
                     <td>Expert</td>
                     <td>1/5</td>
-                    <td class="feedback-negative">This is 2023, not the 90s! Why is this still 2D when all serious games are 3D? Unacceptable!</td>
+                    <td class="feedback-negative">This is 2026, not the 90s! Why is this still 2D when all serious games are 3D? Unacceptable! Plus servers are dead.</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 26, 2026):</strong> We understand the importance of modern visuals. We're assembling a 3D graphics team to work alongside our server recovery efforts. Both improvements are now in our Q2 2026 roadmap. We're also commissioning a novel.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Lisa Nelson</td>
                     <td>lisa@example.com</td>
                     <td>25-34</td>
                     <td>Intermediate</td>
-                    <td>2/5</td>
-                    <td class="feedback-negative">The 2D graphics look so old-fashioned. Why didn't they make it 3D like other modern games?</td>
+                    <td>1/5</td>
+                    <td class="feedback-negative">The 2D graphics look so old-fashioned. Why didn't they make it 3D like other modern games? Also, can't even see the graphics because servers are down!</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 27, 2026):</strong> We're working on both issues simultaneously. Our plan includes server infrastructure replacement followed by the implementation of a modern 3D rendering engine. Thank you for your patience during these improvements. We're also creating a novel.
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Ryan Baker</td>
-                    <td>ryan@example.com</td>
+                    <td>Robert Lee</td>
+                    <td>robert@example.com</td>
                     <td>35-44</td>
+                    <td>Intermediate</td>
+                    <td>4/5</td>
+                    <td class="feedback-positive">The concept is brilliant! The idea of mysterious door knockings has so much potential for a novel. Even though the game doesn't work, I'd love to read the story.</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 28, 2026):</strong> We're thrilled you see the potential in the concept! We're actively working on a novel adaptation of the "Door Knocking" universe. Thank you for your positive feedback despite the technical issues.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jennifer King</td>
+                    <td>jennifer@example.com</td>
+                    <td>25-34</td>
                     <td>Expert</td>
-                    <td>3/5</td>
-                    <td>Good concept but I expected 3D graphics. The 2D style feels dated compared to current standards.</td>
+                    <td>2/5</td>
+                    <td class="feedback-warning">I love the mystery theme but hate that the game is broken. Have you considered making this into a book series instead? The concept is perfect for literature.</td>
+                    <td>Yes</td>
+                    <td>
+                        <div class="admin-response">
+                            <strong>Admin (Jan 29, 2026):</strong> That's an excellent suggestion! We're actually in discussions with several publishers about a novel adaptation. We believe the atmospheric mystery translates well to the written word while we fix the game.
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
         
+        <div class="response-section">
+            <h2>Respond to Player Feedback</h2>
+            <form class="response-form" id="responseForm">
+                <label for="playerName"><strong>Player Name:</strong></label>
+                <input type="text" id="playerName" placeholder="Enter player name">
+                
+                <label for="responseText"><strong>Your Response:</strong></label>
+                <textarea id="responseText" rows="4" placeholder="Enter your response to the player..."></textarea>
+                
+                <label for="responseType"><strong>Response Type:</strong></label>
+                <select id="responseType">
+                    <option value="apology">Apology & Solution</option>
+                    <option value="update">Status Update</option>
+                    <option value="solution">Solution Offered</option>
+                    <option value="acknowledgment">Acknowledgment</option>
+                    <option value="novel">Novel Project Update</option>
+                </select>
+                
+                <button type="submit">Submit Response</button>
+            </form>
+        </div>
+        
         <div class="key-insights">
             <h2>Key Insights</h2>
             <ul>
-                <li><strong>Server Issues:</strong> 41% of feedback mentions server crashes and connection problems</li>
+                <li><strong>Server Issues:</strong> 100% of feedback mentions server crashes and connection problems</li>
+                <li><strong>Novel Interest:</strong> 65% of players expressed interest in a "Door Knocking" novel</li>
                 <li><strong>Dimension Feedback:</strong> 28% of players requested 3D instead of 2D graphics</li>
                 <li><strong>Demographics:</strong> The majority of players are between 25-34 years old</li>
-                <li><strong>Experience Level:</strong> Most players consider themselves intermediate gamers</li>
-                <li><strong>Game Appeal:</strong> The game concept is liked, but technical issues are major deterrents</li>
-                <li><strong>Areas for Improvement:</strong> Critical need to address server stability and consider 3D implementation</li>
-                <li><strong>Performance Impact:</strong> Server issues have significantly lowered overall satisfaction ratings</li>
+                <li><strong>Experience Level:</strong> Players of all experience levels are affected by the server issues</li>
+                <li><strong>Game Appeal:</strong> The game concept has potential, but technical issues have prevented any meaningful gameplay</li>
+                <li><strong>Areas for Improvement:</strong> Complete server infrastructure overhaul required</li>
+                <li><strong>Performance Impact:</strong> Server issues have resulted in extremely low satisfaction ratings</li>
             </ul>
         </div>
         
         <div class="server-status">
-            <h3>Recommended Actions</h3>
+            <h3>Resolution Plan for 2026</h3>
             <ul>
-                <li>Immediate server infrastructure upgrade</li>
-                <li>Implement redundant server systems</li>
-                <li>Conduct thorough stability testing</li>
-                <li>Consider feasibility of 3D implementation</li>
-                <li>Improve connection protocols</li>
-                <li>Provide compensation for affected users</li>
+                <li>Phase 1: Complete server infrastructure replacement (Jan-Feb 2026)</li>
+                <li>Phase 2: Implement redundant server systems (Mar 2026)</li>
+                <li>Phase 3: Conduct thorough stability testing (Apr 2026)</li>
+                <li>Phase 4: Add 3D rendering capabilities (Q2 2026)</li>
+                <li>Phase 5: Beta testing with select community members (May 2026)</li>
+                <li>Phase 6: Full relaunch with improved features (Jun 2026)</li>
+            </ul>
+            
+            <h3>Novel Development Plan</h3>
+            <ul>
+                <li>Jan 2026: Author selection and contract negotiations</li>
+                <li>Feb 2026: Story outline and character development</li>
+                <li>Mar-Apr 2026: First draft completion</li>
+                <li>May 2026: Editing and review process</li>
+                <li>Jun 2026: Publication and marketing launch</li>
             </ul>
         </div>
     </div>
@@ -581,17 +704,93 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Calculate statistics based on sample data
-            const totalResponses = 58;
-            const avgRating = 3.3;
+            const totalResponses = 72;
+            const avgRating = 1.2;
             const commonAge = "25-34";
-            const serverComplaints = 41;
+            const serverComplaints = 100;
             const dimensionComplaints = 28;
+            const novelInterest = 65;
             
             document.getElementById('total-responses').textContent = totalResponses;
             document.getElementById('avg-rating').textContent = avgRating + "/5";
             document.getElementById('common-age').textContent = commonAge;
             document.getElementById('server-complaints').textContent = serverComplaints + "%";
             document.getElementById('dimension-complaints').textContent = dimensionComplaints + "%";
+            document.getElementById('novel-interest').textContent = novelInterest + "%";
+            
+            // Add functionality to respond to feedback
+            document.getElementById('responseForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const playerName = document.getElementById('playerName').value;
+                const responseText = document.getElementById('responseText').value;
+                const responseType = document.getElementById('responseType').value;
+                
+                if (!playerName || !responseText) {
+                    alert('Please fill in both the player name and response text.');
+                    return;
+                }
+                
+                // Create new admin response element
+                const responseDiv = document.createElement('div');
+                responseDiv.className = 'admin-response';
+                
+                const now = new Date();
+                const dateStr = now.toLocaleDateString('en-US', { 
+                    month: 'short', 
+                    day: 'numeric', 
+                    year: 'numeric',
+                    timeZone: 'UTC'
+                });
+                
+                let responseTypeLabel = '';
+                switch(responseType) {
+                    case 'apology':
+                        responseTypeLabel = 'Apology & Solution';
+                        break;
+                    case 'update':
+                        responseTypeLabel = 'Status Update';
+                        break;
+                    case 'solution':
+                        responseTypeLabel = 'Solution Offered';
+                        break;
+                    case 'acknowledgment':
+                        responseTypeLabel = 'Acknowledgment';
+                        break;
+                    case 'novel':
+                        responseTypeLabel = 'Novel Project Update';
+                        break;
+                }
+                
+                responseDiv.innerHTML = `
+                    <strong>Admin (${dateStr}, 2026):</strong> 
+                    <em>[${responseTypeLabel}]</em> ${responseText}
+                `;
+                
+                // Find the last row in the table and add the response
+                const rows = document.querySelectorAll('#results-table tbody tr');
+                if (rows.length > 0) {
+                    const lastRow = rows[rows.length - 1];
+                    const responseCell = lastRow.cells[7]; // Admin Response column
+                    
+                    if (responseCell) {
+                        responseCell.appendChild(responseDiv);
+                    } else {
+                        // If the cell doesn't exist, create one
+                        const newCell = document.createElement('td');
+                        newCell.appendChild(responseDiv);
+                        lastRow.appendChild(newCell);
+                    }
+                    
+                    alert(`Response sent to ${playerName} successfully!`);
+                } else {
+                    alert('No player found to respond to.');
+                }
+                
+                // Reset form
+                document.getElementById('playerName').value = '';
+                document.getElementById('responseText').value = '';
+            });
             
             // Add functionality to sort table columns if needed
             const headers = document.querySelectorAll('#results-table th');
