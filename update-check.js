@@ -2,7 +2,7 @@
 (async function() {
     // ================= 配置区域 =================
     // 1. 这里填写你当前的版本号 (每次发新版记得改这个数字)
-    const currentVersion = "2.0"; 
+    const currentVersion = "4.0"; 
     
     // 2. version.json 的路径 (加上时间戳防止缓存)
     const versionUrl = "./version.json?t=" + new Date().getTime(); 
