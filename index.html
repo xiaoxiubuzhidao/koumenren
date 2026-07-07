@@ -691,250 +691,6 @@
             }
         }
         
-        /* 世界观模态框样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 10001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-        }
-        
-        .modal-content {
-            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%);
-            margin: 5% auto;
-            padding: 40px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(100, 150, 255, 0.2);
-            animation: modalAppear 0.5s ease-out;
-        }
-        
-        @keyframes modalAppear {
-            from {
-                opacity: 0;
-                transform: scale(0.8) translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-        
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            z-index: 2;
-            transition: color 0.3s;
-        }
-        
-        .close:hover,
-        .close:focus {
-            color: #6495ed;
-        }
-        
-        .worldview-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #6495ed;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 700;
-        }
-        
-        .worldview-content {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            text-align: left;
-            background: rgba(0, 0, 30, 0.3);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #6495ed;
-        }
-        
-        .worldview-content h3 {
-            color: #6495ed;
-            margin: 20px 0 15px 0;
-            font-size: 1.6rem;
-        }
-        
-        .worldview-content p {
-            margin-bottom: 15px;
-        }
-        
-        /* 档案列表样式 */
-        .archive-section {
-            background: rgba(0, 0, 30, 0.4);
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 20px;
-            border-left: 5px solid #4169e1;
-        }
-        
-        .archive-title {
-            text-align: center;
-            font-size: 1.8rem;
-            color: #4169e1;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-        
-        .archive-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 10px;
-            max-height: 300px;
-            overflow-y: auto;
-            padding: 10px;
-        }
-        
-        .archive-item {
-            background: rgba(100, 150, 255, 0.2);
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.9rem;
-            cursor: pointer;
-            position: relative;
-            border: 1px solid rgba(100, 150, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .archive-item.locked {
-            opacity: 0.6;
-            filter: grayscale(100%);
-        }
-        
-        .archive-item.locked::after {
-            content: "🔒";
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            font-size: 0.8rem;
-        }
-        
-        .archive-item.unlocked {
-            background: rgba(50, 205, 50, 0.3);
-            opacity: 1;
-            filter: none;
-            cursor: pointer;
-        }
-        
-        .archive-item.unlocked::after {
-            content: "🔓";
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            font-size: 0.8rem;
-            color: #32cd32;
-        }
-        
-        .archive-item.highest-lock {
-            background: rgba(139, 0, 0, 0.4); /* 深红色表示最高加密 */
-            border: 1px solid rgba(255, 0, 0, 0.5);
-            opacity: 0.4;
-        }
-        
-        .archive-item.highest-lock::before {
-            content: "🔐"; /* 最高加密图标 */
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            font-size: 0.8rem;
-        }
-        
-        .archive-item.missing {
-            background: rgba(255, 165, 0, 0.4); /* 橙色表示流失 */
-            border: 1px solid rgba(255, 165, 0, 0.5);
-            opacity: 0.6;
-        }
-        
-        .archive-item.missing::before {
-            content: "❌"; /* 流失图标 */
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            font-size: 0.8rem;
-        }
-        
-        .archive-item:hover {
-            background: rgba(100, 150, 255, 0.3);
-            transform: scale(1.05);
-        }
-        
-        .archive-item.unlocked:hover {
-            background: rgba(50, 205, 50, 0.4);
-        }
-        
-        .archive-item.highest-lock:hover {
-            background: rgba(139, 0, 0, 0.5);
-            cursor: no-drop;
-        }
-        
-        .archive-item.missing:hover {
-            background: rgba(255, 165, 0, 0.5);
-            cursor: not-allowed;
-        }
-        
-        .lock-message {
-            text-align: center;
-            color: #4169e1;
-            font-size: 1.2rem;
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(0, 0, 30, 0.3);
-            border-radius: 10px;
-            border: 1px solid rgba(100, 150, 255, 0.3);
-        }
-        
-        .highest-lock-message {
-            text-align: center;
-            color: #ff0000;
-            font-size: 1.3rem;
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(139, 0, 0, 0.2);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 0, 0, 0.4);
-        }
-        
-        .missing-message {
-            text-align: center;
-            color: #ffa500;
-            font-size: 1.3rem;
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(255, 165, 0, 0.2);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 165, 0, 0.4);
-        }
-        
-        .unlocked-message {
-            text-align: center;
-            color: #32cd32;
-            font-size: 1.3rem;
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(50, 205, 50, 0.2);
-            border-radius: 8px;
-            border: 1px solid rgba(50, 205, 50, 0.4);
-        }
-        
         /* 背景颜色更改控件样式 */
         .color-controls {
             position: fixed;
@@ -1082,31 +838,6 @@
                 font-size: 0.8rem;
             }
             
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
-                padding: 30px 20px;
-            }
-            
-            .worldview-title {
-                font-size: 2rem;
-            }
-            
-            .worldview-content {
-                font-size: 1rem;
-                padding: 20px;
-            }
-            
-            .archive-list {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-                font-size: 0.8rem;
-            }
-            
-            .archive-item {
-                padding: 8px;
-                font-size: 0.7rem;
-            }
-            
             /* 移动端颜色控制面板调整 */
             .color-controls {
                 top: 10px;
@@ -1216,11 +947,6 @@
             </div>
         </div>
         
-        <!-- 世界观按钮 -->
-        <div class="action-buttons">
-            <a href="#" class="action-button" onclick="openWorldviewModal()">世界观</a>
-        </div>
-        
         <div class="books-section">
             <h2 class="section-title">往期作品回顾</h2>
             <div class="books-grid">
@@ -1275,41 +1001,6 @@
         </div>
         <button class="reset-btn" id="resetBtn">恢复默认</button>
     </div>
-    
-    <!-- 世界观模态框 -->
-    <div id="worldviewModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeWorldviewModal()">&times;</span>
-            <h2 class="worldview-title">世界观设定</h2>
-            <div class="worldview-content">
-                <h3>S4赛季 - 时间的裂缝</h3>
-                <p>在S4赛季中，我们将引入"时间的裂缝"这一全新概念。时间的裂缝是一种存在于过去、现在与未来之间的神秘通道，它不仅映射着历史的回响，还预示着未来的可能性。当时间的裂缝被打开时，就会引发"时空交错现象"，这种现象会直接影响现实世界的时空结构。</p>
-                
-                <h3>基本设定</h3>
-                <p>这是一个江户时代与现代的融合世界，在这个独特的时空背景下，时间不再是线性的，而是呈现出多重维度的交错状态。传统与现代文明交织共存，形成了一种前所未有的社会结构。S4赛季"时间的裂缝"预告：在时间的裂缝深处，隐藏着一个足以改变两个世界命运的秘密...</p>
-                
-                <h3>时间的守护者</h3>
-                <p>随着第一军团"刺官军"的进一步发展，他们的任务不再仅限于监察与暗杀，而是扩展到了维护时空稳定的重要使命。在时间的裂缝中，他们将成为守护者，阻止不同时代的混乱融合。</p>
-                
-                <p>在时间的裂缝影响下，江户时代的建筑、服饰、礼仪与现代科技、交通、通讯工具将以更加复杂的方式交织在一起。人们的生活方式、思维方式以及社会结构都将发生深刻的变化。</p>
-                
-                <p>在这个世界中，时空旅行成为可能，但同时也带来了巨大的风险。时间的守护者们必须小心翼翼地维护着时空的稳定，防止历史被篡改，未来被扭曲。</p>
-                
-                <p>这种时空交错的状态创造了无数的可能性，也为我们的故事提供了无限的想象空间。让我们一同探索时间裂缝背后的奥秘，见证历史与未来的交汇点。</p>
-                
-                <!-- 档案部分 -->
-                <div class="archive-section">
-                    <h3 class="archive-title">档案库</h3>
-                    <div class="archive-list" id="archiveList">
-                        <!-- 档案将通过JavaScript动态生成 -->
-                    </div>
-                    <div class="lock-message">🔒 1-5号档案为最高加密级别，无法访问 🔒</div>
-                    <div class="missing-message">❌ 6-20号档案已丢失，无法恢复 ❌</div>
-                    <div class="unlocked-message">🔓 档案186已解锁，可访问 🔓</div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
         // 模拟系统加载过程
@@ -1326,16 +1017,12 @@
             "> 初始化API接口...",
             "> 启动安全协议...",
             "> 准备用户界面...",
-            "> 加载世界观数据...",
-            "> 同步江户-现代融合参数...",
-            "> 时间裂缝分析中...",
             "> 系统启动完成！",
             "> 欢迎访问叩门人系统 v4.0.0"
         ];
         
         let currentProgress = 0;
         let messageIndex = 0;
-        let isLoadingComplete = false;
         
         function updateProgress() {
             if (currentProgress < 100) {
@@ -1395,73 +1082,6 @@
         
         // 启动加载动画
         setTimeout(updateProgress, 500);
-        
-        // 世界观模态框功能
-        function openWorldviewModal() {
-            document.getElementById('worldviewModal').style.display = 'block';
-            
-            // 生成档案列表
-            generateArchives();
-        }
-        
-        function closeWorldviewModal() {
-            document.getElementById('worldviewModal').style.display = 'none';
-        }
-        
-        // 生成档案列表
-        function generateArchives() {
-            const archiveList = document.getElementById('archiveList');
-            archiveList.innerHTML = ''; // 清空现有内容
-            
-            // 创建1-200号档案
-            for (let i = 1; i <= 200; i++) {
-                const archiveItem = document.createElement('div');
-                
-                // 档案1-5为最高加密
-                if (i >= 1 && i <= 5) {
-                    archiveItem.className = 'archive-item highest-lock';
-                    archiveItem.textContent = `No.${i}(最高加密)`;
-                } 
-                // 档案6-20为流失档案
-                else if (i >= 6 && i <= 20) {
-                    archiveItem.className = 'archive-item missing';
-                    archiveItem.textContent = `No.${i}(已流失)`;
-                }
-                // 档案186解锁
-                else if (i === 186) {
-                    archiveItem.className = 'archive-item unlocked';
-                    archiveItem.textContent = `No.${i}`;
-                }
-                // 其他档案为普通锁定
-                else {
-                    archiveItem.className = 'archive-item locked';
-                    archiveItem.textContent = `No.${i}`;
-                }
-                
-                // 添加点击事件
-                archiveItem.addEventListener('click', function() {
-                    if (i >= 1 && i <= 5) {
-                        alert(`档案 No.${i} 已被最高级加密锁定，无法访问`);
-                    } else if (i >= 6 && i <= 20) {
-                        alert(`档案 No.${i} 已丢失，无法恢复`);
-                    } else if (i === 186) {
-                        alert(`档案 No.${i} 已解锁，内容已解密：\n\n第一军团"刺官军"\n隐秘谍报、斩首刺杀、皇城监察近卫，关西黑林城（火林惨案发生地，老城夯土城墙，外围近现代钢筋堡垒，地下密道网遍布全城）幽影炼体术，古法淬毒经脉改造，夜视基因编辑，皮肤耐低温、痛感大幅削弱，擅长隐匿潜伏，制式装备，内层汉服劲装，轻量化复合鳞甲防弹衣，主武器，淬毒环首短刀、消音改装五四式短突、等离子袖箭，特种配装光学隐身斗，历史沿革，原五大民军残部，关西围困战后归顺项石，火林惨案死守东城76天拖垮围城敌军，由营扩编为军团，日常负责，朝堂百官监察、敌酋秘密斩首、皇室贴身暗卫，全员沉默寡言，军团无军旗，只用墨色乌鸦纹章，内部等级以暗杀功绩晋升，但正面阵地攻坚能力极差，不擅长大规模兵团作战\n\nS4赛季"时间的裂缝"预告：\n在时间的裂缝深处，隐藏着一个足以改变两个世界命运的秘密...`);
-                    } else {
-                        alert(`档案 No.${i} 已被加密锁定，无法访问`);
-                    }
-                });
-                
-                archiveList.appendChild(archiveItem);
-            }
-        }
-        
-        // 点击模态框外部关闭
-        window.onclick = function(event) {
-            const modal = document.getElementById('worldviewModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        }
         
         // 背景颜色更改功能
         const colorOptions = document.querySelectorAll('.color-option');
