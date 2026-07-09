@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>系统维护中 - Server Updating</title>
+    <title>系统维护中 - 安全警告</title>
     <style>
         :root {
-            --primary-color: #00ffcc;
-            --secondary-color: #00b3aa;
-            --bg-color: #050510;
-            --text-color: #e0e0ff;
-            --alert-color: #ff3366;
-            --dim-color: #4a5568;
+            --bg-color: #0a0a0a;
+            --text-primary: #e0e0e0;
+            --accent-red: #ff3b3b;
+            --accent-dim: #5c1818;
+            --terminal-bg: #111;
+            --terminal-text: #00ff41;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Courier New', Courier, monospace;
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -32,339 +32,242 @@
             position: relative;
         }
 
-        /* 背景网格动画 - 更缓慢 */
+        /* 背景网格效果 */
         .grid-bg {
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background-image: 
-                linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-            animation: gridMove 60s linear infinite;
-            z-index: 0;
-        }
-
-        @keyframes gridMove {
-            0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); }
-            100% { transform: perspective(500px) rotateX(60deg) translateY(50px) translateZ(-200px); }
-        }
-
-        /* 扫描线效果 */
-        .scanline {
-            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.5) 51%);
-            background-size: 100% 4px;
-            pointer-events: none;
-            z-index: 10;
-            opacity: 0.2;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: 0;
         }
 
         .container {
             position: relative;
-            z-index: 2;
-            text-align: center;
+            z-index: 1;
+            max-width: 600px;
             width: 90%;
-            max-width: 650px;
-            background: rgba(10, 15, 30, 0.9);
-            border: 1px solid var(--primary-color);
-            padding: 50px 40px;
-            border-radius: 4px;
-            box-shadow: 0 0 40px rgba(0, 255, 204, 0.1);
-            backdrop-filter: blur(8px);
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid var(--accent-dim);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(255, 59, 59, 0.1);
         }
 
-        /* 故障文字效果 */
-        .glitch-title {
-            font-size: 2.5rem;
-            font-weight: bold;
+        .icon-wrapper {
+            margin-bottom: 1.5rem;
+        }
+
+        .shield-icon {
+            width: 80px;
+            height: 80px;
+            fill: var(--accent-red);
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-red);
             text-transform: uppercase;
-            position: relative;
-            text-shadow: 2px 2px var(--alert-color);
-            margin-bottom: 30px;
-            letter-spacing: 6px;
-            color: var(--primary-color);
+            letter-spacing: 2px;
         }
 
-        .status-text {
+        p.subtitle {
             font-size: 1.1rem;
-            margin-bottom: 40px;
-            color: var(--text-color);
+            color: #aaa;
+            margin-bottom: 2rem;
             line-height: 1.6;
         }
 
-        .timer-display {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-top: 10px;
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
-        }
-
-        /* 进度条容器 */
-        .progress-wrapper {
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .progress-bar-bg {
-            width: 100%;
-            height: 12px;
-            background: rgba(0, 255, 204, 0.1);
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 255, 204, 0.2);
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: var(--primary-color);
-            box-shadow: 0 0 15px var(--primary-color);
-            transition: width 1s linear; /* 平滑过渡 */
-            position: relative;
-        }
-
-        .percentage {
-            margin-top: 15px;
-            font-size: 1.2rem;
-            color: var(--dim-color);
-        }
-
-        /* 终端日志区域 */
+        /* 模拟终端窗口 */
         .terminal-window {
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid #333;
-            border-left: 3px solid var(--primary-color);
-            padding: 20px;
-            height: 180px;
-            overflow-y: auto;
-            text-align: left;
+            background-color: var(--terminal-bg);
+            border-radius: 6px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
             font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 20px;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
-            font-family: 'Consolas', monospace;
+            text-align: left;
+            height: 150px;
+            overflow: hidden;
+            border: 1px solid #333;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        .log-line {
-            margin-bottom: 8px;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 4px;
+        .terminal-header {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
         }
 
-        .log-line:last-child {
-            border-bottom: none;
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+
+        .log-content {
+            color: var(--terminal-text);
+            opacity: 0.8;
+            line-height: 1.4;
         }
 
-        .log-time {
-            color: var(--dim-color);
-            margin-right: 10px;
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: var(--terminal-text);
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
         }
 
-        .log-msg.info { color: #87ceeb; }
-        .log-msg.success { color: var(--primary-color); }
-        .log-msg.warning { color: #ffcc00; }
-        .log-msg.process { color: #aaa; }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(255, 59, 59, 0.1);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
         }
 
-        .footer {
-            font-size: 0.75rem;
-            opacity: 0.3;
-            margin-top: 30px;
-            letter-spacing: 1px;
+        footer {
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 1rem;
         }
 
-        /* 响应式调整 */
-        @media (max-width: 600px) {
-            .glitch-title { font-size: 1.8rem; letter-spacing: 2px; }
-            .container { padding: 30px 20px; width: 95%; }
-            .timer-display { font-size: 1.5rem; }
-            .terminal-window { height: 150px; }
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 59, 59, 0)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(255, 59, 59, 0.4)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 59, 59, 0)); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.5rem; }
+            .container { padding: 1.5rem; width: 95%; }
+            .terminal-window { height: 120px; }
         }
     </style>
 </head>
 <body>
 
     <div class="grid-bg"></div>
-    <div class="scanline"></div>
 
     <div class="container">
-        <h1 class="glitch-title" data-text="SYSTEM MAINTENANCE">SYSTEM MAINTENANCE</h1>
-        
-        <div class="status-text">
-            服务器正在进行大规模架构重组与数据迁移。<br>
-            此过程需要较长时间，请耐心等待。
+        <div class="icon-wrapper">
+            <!-- SVG Shield Icon -->
+            <svg class="shield-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill-opacity="0.3"/>
+            </svg>
         </div>
 
-        <div class="timer-display" id="timer">72:00:00</div>
+        <div class="status-badge">SYSTEM LOCKDOWN</div>
 
-        <div class="progress-wrapper">
-            <div class="progress-bar-bg">
-                <div class="progress-bar-fill" id="progressBar"></div>
+        <h1>服务暂时不可用</h1>
+        <p class="subtitle">
+            检测到异常网络流量，服务器已自动进入防御模式。<br>
+            为了保障数据安全，我们暂时关闭了外部访问。
+        </p>
+
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
             </div>
-            <div class="percentage">COMPLETION: <span id="percentText">0.0000</span>%</div>
+            <div class="log-content" id="logOutput">
+                > Initializing firewall protocols...<br>
+            </div>
+            <span class="cursor"></span>
         </div>
 
-        <div class="terminal-window" id="terminal">
-            <!-- 日志将在这里生成 -->
-        </div>
-
-        <div class="footer">
-            SERVER ID: KM-2026-X | STATUS: OFFLINE FOR UPDATE
-        </div>
+        <footer>
+            &copy; 2026 Server Security Team. All rights reserved.<br>
+            Error Code: 503 Service Unavailable
+        </footer>
     </div>
 
     <script>
-        const progressBar = document.getElementById('progressBar');
-        const percentText = document.getElementById('percentText');
-        const terminal = document.getElementById('terminal');
-        const timerElement = document.getElementById('timer');
-
-        // --- 配置区域 ---
-        const TOTAL_HOURS = 72;
-        const TOTAL_MS = TOTAL_HOURS * 60 * 60 * 1000;
+        // 模拟黑客攻击/防御日志脚本
+        const logContainer = document.getElementById('logOutput');
         
-        // 获取开始时间。
-        // 注意：为了演示效果，这里每次刷新页面都会重新开始72小时倒计时。
-        // 如果您希望它在刷新后继续计数，需要使用 localStorage 存储 startTime。
-        // 下面代码使用了 localStorage 逻辑，这样即使您关闭浏览器再打开，时间也是连续的。
-        let startTime = localStorage.getItem('serverUpdateStartTime');
-        
-        if (!startTime) {
-            startTime = Date.now();
-            localStorage.setItem('serverUpdateStartTime', startTime);
-        } else {
-            startTime = parseInt(startTime);
-        }
-
-        // 模拟日志库 - 包含一些看起来很专业的术语
-        const logMessages = [
-            { msg: "Initializing deep storage array...", type: "info" },
-            { msg: "Verifying checksums for sector 7G...", type: "process" },
-            { msg: "Compressing legacy database logs...", type: "process" },
-            { msg: "Optimizing neural network pathways...", type: "info" },
-            { msg: "Syncing with off-site backup node [JP-Tokyo]...", type: "success" },
-            { msg: "Clearing temporary cache files (45GB)...", type: "process" },
-            { msg: "Updating security protocols to v9.2...", type: "warning" },
-            { msg: "Re-indexing user permission tables...", type: "info" },
-            { msg: "Defragmenting virtual memory blocks...", type: "process" },
-            { msg: "Checking integrity of core system files...", type: "info" },
-            { msg: "Applying patch #2026.11.04-Beta...", type: "success" },
-            { msg: "Calibrating time-sync servers...", type: "info" },
-            { msg: "Warning: High latency detected in sector 4. Retrying...", type: "warning" },
-            { msg: "Migrating user session data...", type: "process" },
-            { msg: "Compiling static assets...", type: "process" },
-            { msg: "Running diagnostic suite A-12...", type: "info" },
-            { msg: "Cooling down CPU clusters...", type: "info" },
-            { msg: "Verifying encryption keys...", type: "success" },
-            { msg: "Updating DNS records...", type: "process" },
-            { msg: "Finalizing configuration changes...", type: "info" }
+        const logs = [
+            "> Detecting high traffic volume from IP 192.168.x.x...",
+            "> WARNING: DDoS pattern identified.",
+            "> Activating WAF (Web Application Firewall)...",
+            "> Blocking malicious packets...",
+            "> Rerouting traffic to scrubbing center...",
+            "> System integrity check: PASSED",
+            "> Maintaining lockdown state...",
+            "> Waiting for admin authorization..."
         ];
 
-        function formatTime(ms) {
-            if (ms < 0) return "00:00:00";
-            const totalSeconds = Math.floor(ms / 1000);
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-            
-            // 如果超过24小时，显示 HH:MM:SS，否则也可以显示 Days
-            return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        }
+        let logIndex = 0;
 
-        function getCurrentTimeStr() {
-            const now = new Date();
-            return now.toLocaleTimeString('en-US', { hour12: false });
-        }
-
-        function addLog(text, type) {
-            const div = document.createElement('div');
-            div.className = 'log-line';
-            
-            const timeSpan = document.createElement('span');
-            timeSpan.className = 'log-time';
-            timeSpan.textContent = `[${getCurrentTimeStr()}]`;
-            
-            const msgSpan = document.createElement('span');
-            msgSpan.className = `log-msg ${type}`;
-            msgSpan.textContent = text;
-
-            div.appendChild(timeSpan);
-            div.appendChild(msgSpan);
-            
-            terminal.appendChild(div);
-            terminal.scrollTop = terminal.scrollHeight;
-
-            // 限制日志数量，防止内存溢出
-            if (terminal.children.length > 50) {
-                terminal.removeChild(terminal.firstChild);
-            }
-        }
-
-        let lastLogIndex = -1;
-
-        function updateLoop() {
-            const now = Date.now();
-            const elapsed = now - startTime;
-            
-            // 计算进度
-            let progress = (elapsed / TOTAL_MS) * 100;
-            
-            // 边界检查
-            if (progress >= 100) {
-                progress = 100;
-                timerElement.textContent = "00:00:00";
-                timerElement.style.color = "#00ff00";
-                progressBar.style.background = "#00ff00";
-                progressBar.style.boxShadow = "0 0 20px #00ff00";
-                
-                if (!document.getElementById('final-log')) {
-                    addLog("System update completed successfully. Rebooting...", "success");
-                    const finalLog = document.createElement('div');
-                    finalLog.id = 'final-log';
-                    finalLog.style.color = '#00ff00';
-                    finalLog.style.marginTop = '10px';
-                    finalLog.textContent = ">>> SYSTEM READY <<<";
-                    terminal.appendChild(finalLog);
+        function addLog() {
+            if (logIndex < logs.length) {
+                const newLine = document.createElement('div');
+                newLine.innerHTML = logs[logIndex];
+                // 给不同的日志添加不同的颜色
+                if(logs[logIndex].includes("WARNING")) {
+                    newLine.style.color = "#ff3b3b";
+                } else if (logs[logIndex].includes("PASSED")) {
+                    newLine.style.color = "#00ff41";
                 }
+                
+                logContainer.appendChild(newLine);
+                
+                // 自动滚动到底部
+                logContainer.scrollTop = logContainer.scrollHeight;
+                
+                logIndex++;
+                
+                // 随机延迟，模拟真实处理时间
+                const delay = Math.random() * 800 + 200;
+                setTimeout(addLog, delay);
             } else {
-                const remaining = TOTAL_MS - elapsed;
-                timerElement.textContent = formatTime(remaining);
-                
-                // 随机生成日志，模拟漫长过程中的偶尔活动
-                // 概率设为非常低，模拟72小时内的稀疏活动
-                if (Math.random() < 0.005) { // 每次循环(约16ms)有0.5%几率输出日志，平均几秒一条
-                     // 为了避免连续输出，加一个简单的锁或间隔检查会更好，但随机性在这里足够模拟"静默"
-                     const randomLog = logMessages[Math.floor(Math.random() * logMessages.length)];
-                     addLog(randomLog.msg, randomLog.type);
-                }
+                // 循环播放最后一条
+                const newLine = document.createElement('div');
+                newLine.innerHTML = "> Holding position...";
+                logContainer.appendChild(newLine);
+                logContainer.scrollTop = logContainer.scrollHeight;
+                setTimeout(() => {
+                    // 清理旧日志防止内存溢出（简单版）
+                    if(logContainer.children.length > 10) {
+                        logContainer.removeChild(logContainer.firstChild);
+                    }
+                    setTimeout(addLog, 2000);
+                }, 2000);
             }
-
-            // 更新UI
-            progressBar.style.width = `${progress}%`;
-            percentText.textContent = progress.toFixed(4); // 显示多位小数以体现缓慢变化
-
-            requestAnimationFrame(updateLoop);
         }
 
-        // 初始化
-        addLog("Maintenance window started.", "info");
-        addLog(`Estimated duration: ${TOTAL_HOURS} hours.`, "warning");
-        
-        // 启动循环
-        requestAnimationFrame(updateLoop);
-
+        // 启动日志动画
+        setTimeout(addLog, 1000);
     </script>
 </body>
 </html>
+
+
+
