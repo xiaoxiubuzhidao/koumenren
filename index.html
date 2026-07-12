@@ -3,271 +3,1138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>系统维护中 - 安全警告</title>
+    <title>叩门人 S4赛季 官方公告网站</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #0a0a0a;
-            --text-primary: #e0e0e0;
-            --accent-red: #ff3b3b;
-            --accent-dim: #5c1818;
-            --terminal-bg: #111;
-            --terminal-text: #00ff41;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-
+        
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            font-family: 'Roboto', 'Noto Serif SC', 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%);
+            color: #e0e0ff;
+            line-height: 1.6;
+            overflow-x: hidden;
             position: relative;
+            transition: background 0.5s ease;
         }
-
-        /* 背景网格效果 */
-        .grid-bg {
+        
+        /* 科技风背景动画效果 */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(100, 150, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(150, 200, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(50, 100, 200, 0.1) 0%, transparent 50%);
+            animation: bgMove 25s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+        
+        @keyframes bgMove {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            100% {
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+        
+        /* 科技网格背景 */
+        body::after {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: 0;
+                linear-gradient(rgba(100, 150, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 150, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.6;
         }
-
+        
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
             position: relative;
             z-index: 1;
-            max-width: 600px;
-            width: 90%;
+        }
+        
+        header {
             text-align: center;
-            padding: 2rem;
-            border: 1px solid var(--accent-dim);
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(10px);
-            border-radius: 8px;
-            box-shadow: 0 0 30px rgba(255, 59, 59, 0.1);
-        }
-
-        .icon-wrapper {
-            margin-bottom: 1.5rem;
-        }
-
-        .shield-icon {
-            width: 80px;
-            height: 80px;
-            fill: var(--accent-red);
-            animation: pulse 2s infinite;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent-red);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        p.subtitle {
-            font-size: 1.1rem;
-            color: #aaa;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        /* 模拟终端窗口 */
-        .terminal-window {
-            background-color: var(--terminal-bg);
-            border-radius: 6px;
-            padding: 15px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.85rem;
-            text-align: left;
-            height: 150px;
+            padding: 80px 20px 60px;
+            background: rgba(10, 15, 30, 0.7);
+            margin-bottom: 40px;
+            border-radius: 20px;
+            position: relative;
             overflow: hidden;
-            border: 1px solid #333;
-            margin-bottom: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 0;
+        }
+        
+        /* 标题边框动画 */
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            box-shadow: inset 0 0 20px rgba(100, 150, 255, 0.5), 0 0 40px rgba(100, 150, 255, 0.3);
+            animation: borderGlow 3s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+        
+        @keyframes borderGlow {
+            0% {
+                box-shadow: inset 0 0 20px rgba(100, 150, 255, 0.5), 0 0 20px rgba(100, 150, 255, 0.3);
+            }
+            100% {
+                box-shadow: inset 0 0 30px rgba(100, 150, 255, 0.8), 0 0 60px rgba(100, 150, 255, 0.5);
+            }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(to right, #6495ed, #87ceeb, #6495ed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 10px rgba(100, 150, 255, 0.5);
+            }
+            100% {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(100, 150, 255, 0.8), 0 0 30px rgba(100, 150, 255, 0.6);
+            }
+        }
+        
+        .subtitle {
+            font-size: 1.6rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            font-weight: 300;
+            position: relative;
+            color: #87ceeb;
+        }
+        
+        .subtitle::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #6495ed, transparent);
+        }
+        
+        .version-info {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            color: #6495ed;
+        }
+        
+        .authors {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        
+        .author-card {
+            background: rgba(100, 150, 255, 0.12);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            min-width: 280px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+        
+        .author-card::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #6495ed, #4169e1, #00bfff);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .author-card:hover {
+            transform: translateY(-10px) scale(1.03) rotateX(5deg);
+            background: rgba(100, 150, 255, 0.18);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .author-card:hover::before {
+            opacity: 1;
+        }
+        
+        .author-name {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #6495ed;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .author-name::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #6495ed;
+            border-radius: 1px;
+        }
+        
+        .author-role {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            opacity: 0.85;
+            font-weight: 400;
+            color: #87ceeb;
+        }
+        
+        .author-desc {
+            font-size: 1.05rem;
+            opacity: 0.92;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        .announcement-section {
+            background: rgba(100, 150, 255, 0.12);
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .announcement-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #6495ed, #87ceeb, #6495ed);
+            animation: gradientMove 3s linear infinite;
+        }
+        
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            color: #6495ed;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #6495ed, transparent);
+            border-radius: 2px;
+        }
+        
+        .announcement-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: left;
+            background: rgba(0, 0, 30, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #6495ed;
+        }
+        
+        .announcement-content h3 {
+            color: #6495ed;
+            margin: 20px 0 15px 0;
+            font-size: 1.6rem;
+        }
+        
+        .announcement-content p {
+            margin-bottom: 15px;
+        }
+        
+        .announcement-content a {
+            color: #87ceeb;
+            text-decoration: underline;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: inline-block;
+            width: 200px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #6495ed, #4169e1);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(100, 150, 255, 0.4);
+            text-align: center;
+            transform-style: preserve-3d;
+            text-decoration: none;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(100, 150, 255, 0.6);
+        }
+        
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: all 0.6s;
+        }
+        
+        .action-button:hover::before {
+            left: 120%;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .book-card {
+            background: rgba(100, 150, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(100, 150, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+        
+        .book-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #6495ed, #87ceeb);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: 1;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-12px) rotateY(5deg);
+            background: rgba(100, 150, 255, 0.22);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .book-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .book-title {
+            font-size: 1.7rem;
+            margin-bottom: 12px;
+            color: #6495ed;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .book-author {
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            opacity: 0.92;
+            color: #e0e0ff;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .book-desc {
+            font-size: 1.05rem;
+            opacity: 0.88;
+            line-height: 1.7;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(10, 15, 30, 0.7);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(100, 150, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        .contact-info {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            opacity: 0.8;
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(100, 150, 255, 0.1);
+            position: relative;
+        }
+        
+        .version-footer {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 0.9rem;
+            color: #6495ed;
+        }
+        
+        /* 系统加载界面样式 */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a12;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            font-family: 'Courier New', monospace;
+            color: #00ffcc;
+        }
+
+        /* 背景扫描线效果 */
+        .loading-screen::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(0, 255, 204, 0.05) 1px,
+                transparent 2px
+            );
+            animation: scan 8s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes scan {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 100vh;
+            }
+        }
+
+        .loading-container {
+            text-align: center;
+            z-index: 2;
             position: relative;
         }
 
-        .terminal-header {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 8px;
+        .loading-logo {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+            }
+            to {
+                text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
+            }
+        }
+
+        .loading-status {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .progress-container {
+            width: 80%;
+            max-width: 500px;
+            height: 10px;
+            background: rgba(0, 255, 204, 0.1);
+            border-radius: 5px;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #00ffcc, #00b3aa);
+            border-radius: 5px;
+            transition: width 0.4s ease;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shine 1.5s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .percentage {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .terminal {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            width: 80%;
+            max-width: 600px;
+            height: 150px;
+            background: rgba(0, 20, 30, 0.7);
+            border: 1px solid #00ffcc;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 0 auto;
+            overflow-y: auto;
+            opacity: 0.8;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+        }
+
+        .terminal-line {
+            margin-bottom: 5px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .loading-dots {
+            display: inline-block;
         }
 
         .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-        .dot.red { background: #ff5f56; }
-        .dot.yellow { background: #ffbd2e; }
-        .dot.green { background: #27c93f; }
-
-        .log-content {
-            color: var(--terminal-text);
-            opacity: 0.8;
-            line-height: 1.4;
-        }
-
-        .cursor {
             display: inline-block;
             width: 8px;
-            height: 15px;
-            background: var(--terminal-text);
-            animation: blink 1s step-end infinite;
-            vertical-align: middle;
+            height: 8px;
+            border-radius: 50%;
+            background: #00ffcc;
+            margin: 0 2px;
+            animation: pulse 1.4s infinite ease-in-out both;
         }
 
-        .status-badge {
-            display: inline-block;
-            padding: 6px 12px;
-            background: rgba(255, 59, 59, 0.1);
-            border: 1px solid var(--accent-red);
-            color: var(--accent-red);
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        footer {
-            font-size: 0.8rem;
-            color: #555;
-            margin-top: 1rem;
-        }
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
 
         @keyframes pulse {
-            0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 59, 59, 0)); }
-            50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(255, 59, 59, 0.4)); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 59, 59, 0)); }
+            0%, 80%, 100% {
+                transform: scale(0.8);
+                opacity: 0.7;
+            }
+            40% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
         }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+        
+        /* 背景颜色更改控件样式 */
+        .color-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(10, 15, 30, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
-
-        /* 移动端适配 */
+        
+        .color-controls h3 {
+            color: #6495ed;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .color-palette {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.2);
+        }
+        
+        .color-option.active {
+            border-color: white;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+        
+        .custom-color-picker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .custom-color-picker label {
+            color: #e0e0ff;
+            font-size: 0.9rem;
+        }
+        
+        .custom-color-picker input[type="color"] {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .reset-btn {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px;
+            background: rgba(100, 150, 255, 0.3);
+            color: #e0e0ff;
+            border: 1px solid rgba(100, 150, 255, 0.5);
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        
+        .reset-btn:hover {
+            background: rgba(100, 150, 255, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .authors {
+                gap: 30px;
+            }
+            
+            .author-card {
+                min-width: 250px;
+                padding: 25px;
+            }
+            
+            .announcement-section {
+                padding: 30px 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-button {
+                width: 80%;
+                max-width: 250px;
+            }
+            
+            .book-card {
+                padding: 25px;
+            }
+            
+            /* 移动端加载界面调整 */
+            .loading-logo {
+                font-size: 1.8rem;
+            }
+            
+            .terminal {
+                width: 95%;
+                max-width: none;
+                height: 120px;
+            }
+            
+            .version-info {
+                font-size: 1rem;
+            }
+            
+            .version-footer {
+                position: static;
+                display: block;
+                margin-top: 10px;
+                font-size: 0.8rem;
+            }
+            
+            /* 移动端颜色控制面板调整 */
+            .color-controls {
+                top: 10px;
+                right: 10px;
+                padding: 10px;
+            }
+            
+            .color-option {
+                width: 25px;
+                height: 25px;
+            }
+        }
+        
         @media (max-width: 480px) {
-            h1 { font-size: 1.5rem; }
-            .container { padding: 1.5rem; width: 95%; }
-            .terminal-window { height: 120px; }
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .authors {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .author-card {
+                min-width: 90%;
+            }
+            
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .color-controls {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin: 10px auto;
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
-
-    <div class="grid-bg"></div>
-
-    <div class="container">
-        <div class="icon-wrapper">
-            <!-- SVG Shield Icon -->
-            <svg class="shield-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill-opacity="0.3"/>
-            </svg>
-        </div>
-
-        <div class="status-badge">SYSTEM LOCKDOWN</div>
-
-        <h1>服务暂时不可用</h1>
-        <p class="subtitle">
-            检测到异常网络流量，服务器已自动进入防御模式。<br>
-            为了保障数据安全，我们暂时关闭了外部访问。
-        </p>
-
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
+    <!-- 系统加载界面 -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-container">
+            <div class="loading-logo">叩门人 SYSTEM v4.0.0</div>
+            <div class="loading-status">正在进入系统<span class="loading-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </span></div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
             </div>
-            <div class="log-content" id="logOutput">
-                > Initializing firewall protocols...<br>
+            <div class="percentage" id="percentage">0%</div>
+            <div class="terminal" id="terminal">
+                <div class="terminal-line">> 初始化叩门人核心系统 v4.0.0...</div>
             </div>
-            <span class="cursor"></span>
         </div>
+    </div>
 
+    <!-- 主要内容区域 -->
+    <div class="container" id="mainContent" style="display: none;">
+        <header>
+            <div class="header-content">
+                <h1>S4赛季</h1>
+                <div class="subtitle">全新篇章，即将开启</div>
+                <div class="version-info">版本：v4.0.0</div>
+            </div>
+        </header>
+        
+        <div class="announcement-section">
+            <h2 class="section-title">最新公告</h2>
+            <div class="announcement-content">
+                <h3>哀牢山小说官网已上线</h3>
+                <p>我们很高兴地宣布，哀牢山小说官网正式上线！</p>
+                
+                <p>您可以访问我们的官方网站了解更多信息：</p>
+                
+                <p><a href="https://xiaoxiubuzhidao.github.io/ailaoshan.github.io/" target="_blank">https://xiaoxiubuzhidao.github.io/ailaoshan.github.io/</a></p>
+                
+                <p>在官网上，您将能够找到更多关于哀牢山系列小说的详细信息、角色介绍、世界观设定以及最新的更新动态。我们致力于为读者提供最优质的阅读体验和最丰富的内容。</p>
+                
+                <p>感谢您一直以来的支持与关注，期待在新的平台上与您继续分享更多精彩的故事！</p>
+            </div>
+        </div>
+        
+        <div class="authors">
+            <div class="author-card">
+                <div class="author-name">小修</div>
+                <div class="author-role">主笔</div>
+                <div class="author-desc">擅长构建宏大世界观的幻想小说作家，作品以细腻的情感描写和深刻的人物刻画著称。文字风格富有诗意，善于在宏大的叙事背景下探讨人性的复杂与美好。</div>
+            </div>
+            
+            <div class="author-card">
+                <div class="author-name">夕折</div>
+                <div class="author-role">副笔</div>
+                <div class="author-desc">专注于现实题材和情感小说的作家，善于捕捉生活中的细微情感，文字温暖而治愈。作品常以日常生活为背景，展现人与人之间真挚的情感联系。</div>
+            </div>
+        </div>
+        
+        <div class="books-section">
+            <h2 class="section-title">往期作品回顾</h2>
+            <div class="books-grid">
+                <a href="https://fanqienovel.com/page/7618721621053819966?enter_from=search" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="book-card">
+                        <div class="book-title">叩门人</div>
+                        <div class="book-author">作者：夕折</div>
+                        <div class="book-desc">一部充满悬疑色彩的小说，讲述神秘访客的到来如何改变平凡生活的故事。通过层层悬念揭示人性深处的秘密与渴望。</div>
+                    </div>
+                </a>
+                
+                <div class="book-card">
+                    <div class="book-title">清禄山</div>
+                    <div class="book-author">作者：夕折</div>
+                    <div class="book-desc">一段温暖的故事，描绘现代人的情感纠葛与内心成长。在山间小镇的宁静氛围中，探索人际关系的复杂与美好。</div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-title">鬼叩</div>
+                    <div class="book-author">作者：小修</div>
+                    <div class="book-desc">稍后上线。这是一部融合了东方神秘元素的奇幻作品，将带领读者进入一个充满未知与惊奇的世界。</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact">
+            <div class="contact-info">敬请期待更多精彩作品...</div>
+        </div>
+        
         <footer>
-            &copy; 2026 Server Security Team. All rights reserved.<br>
-            Error Code: 503 Service Unavailable
+            <p>&copy; 2026 叩门人官方网站. 保留所有权利.</p>
+            <div class="version-footer">v4.0.0</div>
         </footer>
+    </div>
+    
+    <!-- 背景颜色更改控件 -->
+    <div class="color-controls">
+        <h3>更改背景</h3>
+        <div class="color-palette">
+            <div class="color-option" style="background-color: #0a0a2a;" data-color="#0a0a2a"></div>
+            <div class="color-option" style="background-color: #1a1a4a;" data-color="#1a1a4a"></div>
+            <div class="color-option" style="background-color: #2c003e;" data-color="#2c003e"></div>
+            <div class="color-option" style="background-color: #003366;" data-color="#003366"></div>
+            <div class="color-option" style="background-color: #33001b;" data-color="#33001b"></div>
+            <div class="color-option" style="background-color: #003300;" data-color="#003300"></div>
+            <div class="color-option" style="background-color: #333333;" data-color="#333333"></div>
+            <div class="color-option" style="background-color: #4d4d4d;" data-color="#4d4d4d"></div>
+        </div>
+        <div class="custom-color-picker">
+            <label for="customColor">自定义:</label>
+            <input type="color" id="customColor" value="#0a0a2a">
+        </div>
+        <button class="reset-btn" id="resetBtn">恢复默认</button>
     </div>
 
     <script>
-        // 模拟黑客攻击/防御日志脚本
-        const logContainer = document.getElementById('logOutput');
+        // 模拟系统加载过程
+        const progress = document.getElementById('progressBar');
+        const percentage = document.getElementById('percentage');
+        const terminal = document.getElementById('terminal');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const mainContent = document.getElementById('mainContent');
         
-        const logs = [
-            "> Detecting high traffic volume from IP 192.168.x.x...",
-            "> WARNING: DDoS pattern identified.",
-            "> Activating WAF (Web Application Firewall)...",
-            "> Blocking malicious packets...",
-            "> Rerouting traffic to scrubbing center...",
-            "> System integrity check: PASSED",
-            "> Maintaining lockdown state...",
-            "> Waiting for admin authorization..."
+        const messages = [
+            "> 连接叩门人数据库 v4.0.0...",
+            "> 验证用户权限...",
+            "> 加载小说内容...",
+            "> 初始化API接口...",
+            "> 启动安全协议...",
+            "> 准备用户界面...",
+            "> 系统启动完成！",
+            "> 欢迎访问叩门人系统 v4.0.0"
         ];
-
-        let logIndex = 0;
-
-        function addLog() {
-            if (logIndex < logs.length) {
-                const newLine = document.createElement('div');
-                newLine.innerHTML = logs[logIndex];
-                // 给不同的日志添加不同的颜色
-                if(logs[logIndex].includes("WARNING")) {
-                    newLine.style.color = "#ff3b3b";
-                } else if (logs[logIndex].includes("PASSED")) {
-                    newLine.style.color = "#00ff41";
+        
+        let currentProgress = 0;
+        let messageIndex = 0;
+        
+        function updateProgress() {
+            if (currentProgress < 100) {
+                // 每次增加随机进度值，确保最终达到100%
+                const increment = Math.min(Math.random() * 10, 100 - currentProgress);
+                currentProgress += increment;
+                
+                // 更新进度条和百分比
+                progress.style.width = `${currentProgress}%`;
+                percentage.textContent = `${Math.round(currentProgress)}%`;
+                
+                // 随机时机添加终端消息
+                if (messageIndex < messages.length && Math.random() > 0.7) {
+                    const line = document.createElement('div');
+                    line.className = 'terminal-line';
+                    line.textContent = messages[messageIndex];
+                    terminal.appendChild(line);
+                    terminal.scrollTop = terminal.scrollHeight;
+                    messageIndex++;
                 }
                 
-                logContainer.appendChild(newLine);
-                
-                // 自动滚动到底部
-                logContainer.scrollTop = logContainer.scrollHeight;
-                
-                logIndex++;
-                
-                // 随机延迟，模拟真实处理时间
-                const delay = Math.random() * 800 + 200;
-                setTimeout(addLog, delay);
+                // 继续更新进度
+                setTimeout(updateProgress, 100 + Math.random() * 200);
             } else {
-                // 循环播放最后一条
-                const newLine = document.createElement('div');
-                newLine.innerHTML = "> Holding position...";
-                logContainer.appendChild(newLine);
-                logContainer.scrollTop = logContainer.scrollHeight;
+                // 强制设置进度为100%
+                progress.style.width = '100%';
+                percentage.textContent = '100%';
+                
+                // 加载完成后隐藏加载界面，显示主要内容
                 setTimeout(() => {
-                    // 清理旧日志防止内存溢出（简单版）
-                    if(logContainer.children.length > 10) {
-                        logContainer.removeChild(logContainer.firstChild);
-                    }
-                    setTimeout(addLog, 2000);
-                }, 2000);
+                    const finalLine = document.createElement('div');
+                    finalLine.className = 'terminal-line';
+                    finalLine.textContent = '> 访问授权已建立 v4.0.0';
+                    terminal.appendChild(finalLine);
+                    
+                    const accessLine = document.createElement('div');
+                    accessLine.className = 'terminal-line';
+                    accessLine.textContent = '> 欢迎回来，用户';
+                    terminal.appendChild(accessLine);
+                    terminal.scrollTop = terminal.scrollHeight;
+                    
+                    // 2秒后切换到主要内容
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        mainContent.style.display = 'block';
+                        
+                        // 添加页面淡入效果
+                        mainContent.style.opacity = '0';
+                        mainContent.style.transition = 'opacity 1s ease-in-out';
+                        setTimeout(() => {
+                            mainContent.style.opacity = '1';
+                        }, 50);
+                    }, 2000);
+                }, 500);
             }
         }
-
-        // 启动日志动画
-        setTimeout(addLog, 1000);
+        
+        // 启动加载动画
+        setTimeout(updateProgress, 500);
+        
+        // 背景颜色更改功能
+        const colorOptions = document.querySelectorAll('.color-option');
+        const customColorPicker = document.getElementById('customColor');
+        const resetBtn = document.getElementById('resetBtn');
+        const body = document.body;
+        
+        // 默认背景颜色
+        const defaultGradient = 'linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%)';
+        
+        // 为每个颜色选项添加点击事件
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const color = this.getAttribute('data-color');
+                body.style.background = `linear-gradient(135deg, ${color} 0%, #1a1a4a 100%)`;
+                
+                // 移除其他选项的active类
+                colorOptions.forEach(opt => opt.classList.remove('active'));
+                
+                // 为当前选项添加active类
+                this.classList.add('active');
+                
+                // 更新自定义颜色选择器的值
+                customColorPicker.value = color;
+            });
+        });
+        
+        // 自定义颜色选择器事件
+        customColorPicker.addEventListener('input', function() {
+            const color = this.value;
+            body.style.background = `linear-gradient(135deg, ${color} 0%, #1a1a4a 100%)`;
+            
+            // 移除所有选项的active类
+            colorOptions.forEach(opt => opt.classList.remove('active'));
+        });
+        
+        // 重置按钮事件
+        resetBtn.addEventListener('click', function() {
+            body.style.background = defaultGradient;
+            
+            // 移除所有选项的active类
+            colorOptions.forEach(opt => opt.classList.remove('active'));
+            
+            // 重置自定义颜色选择器
+            customColorPicker.value = '#0a0a2a';
+        });
+        
+        // 页面加载完成后自动选择第一个颜色选项
+        document.addEventListener('DOMContentLoaded', function() {
+            if (colorOptions.length > 0) {
+                colorOptions[0].classList.add('active');
+            }
+        });
     </script>
 </body>
 </html>
-
-
-
